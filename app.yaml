@@ -1,6 +1,8 @@
-service: personal-portfolio
 runtime: nodejs8
 
 handlers:
 - url: /
+  static_files: src/index.html
+  upload: src/index.html
+- url: /.*
   static_dir: src
