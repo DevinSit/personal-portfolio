@@ -1,2 +1,6 @@
 .git/
+app.yaml
+cloudbuild.yaml
+Makefile
 README.md
+scripts/
