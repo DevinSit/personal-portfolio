@@ -1,6 +1,10 @@
 .git/
+scripts/
+
 app.yaml
 cloudbuild.yaml
 Makefile
+node_modules
+package.json
+package-lock.json
 README.md
-scripts/

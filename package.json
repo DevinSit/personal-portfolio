@@ -1,0 +1,19 @@
+{
+    "name": "personalportfolio",
+    "version": "0.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "live-server --open=src"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@bitbucket.org/dsrobo620/personalportfolio.git"
+    },
+    "author": "Devin Sit",
+    "homepage": "https://bitbucket.org/dsrobo620/personalportfolio#readme",
+    "dependencies": {},
+    "devDependencies": {
+        "live-server": "^1.2.0"
+    }
+}
