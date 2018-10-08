@@ -2,7 +2,7 @@ runtime: nodejs8
 
 handlers:
 - url: /
-  static_files: src/index.html
-  upload: src/index.html
+  static_files: build/index.html
+  upload: build/index.html
 - url: /.*
-  static_dir: src
+  static_dir: build
