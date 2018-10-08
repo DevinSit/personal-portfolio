@@ -1,19 +1,31 @@
 {
-    "name": "personalportfolio",
-    "version": "0.0.1",
-    "description": "",
-    "main": "index.js",
+    "private": true,
+    "name": "personal-portfolio",
+    "version": "0.0.0",
+    "license": "MIT",
     "scripts": {
-        "start": "cd src; live-server"
+        "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+        "build": "preact build --template src/index.html",
+        "serve": "preact build --template src/index.html && preact serve",
+        "dev": "preact watch --template src/index.html",
+        "lint": "eslint src"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+ssh://git@bitbucket.org/dsrobo620/personalportfolio.git"
+    "eslintConfig": {
+        "extends": "eslint-config-synacor"
     },
-    "author": "Devin Sit",
-    "homepage": "https://bitbucket.org/dsrobo620/personalportfolio#readme",
-    "dependencies": {},
+    "eslintIgnore": [
+        "build/*"
+    ],
     "devDependencies": {
-        "live-server": "^1.2.0"
+        "eslint": "^4.5.0",
+        "eslint-config-synacor": "^1.1.0",
+        "if-env": "^1.0.0",
+        "node-sass": "^4.9.3",
+        "preact-cli": "^2.0.0",
+        "sass-loader": "^7.1.0"
+    },
+    "dependencies": {
+        "preact": "^8.2.1",
+        "preact-compat": "^3.17.0"
     }
 }
