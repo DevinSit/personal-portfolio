@@ -1,10 +1,13 @@
 .git/
 scripts/
+src/
 
+.gitignore
 app.yaml
 cloudbuild.yaml
 Makefile
 node_modules
 package.json
 package-lock.json
+preact.config.js
 README.md
