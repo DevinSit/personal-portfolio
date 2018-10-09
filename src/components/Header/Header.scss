@@ -25,10 +25,10 @@
 
             font-size: $normal-text-size;
             letter-spacing: 3px;
-            padding: 0 $default-spacing * 1.5;
+            margin: 0 $default-spacing * 1.5;
 
             &:last-child {
-                padding-right: 0;
+                margin-right: 0;
             }
         }
     }
