@@ -1,0 +1,29 @@
+$desktop-width: 1350px;
+$tablet-width: 767px;
+$phone-width: 400px;
+
+$laptop-height: 767px;
+
+@mixin desktop-width {
+    @media (max-width: #{$desktop-width}) {
+        @content
+    }
+}
+@mixin tablet-width {
+    @media (max-width: #{$tablet-width}) {
+        @content
+    }
+}
+
+@mixin phone-width {
+    @media (max-width: #{$phone-width}) {
+        @content
+    }
+}
+
+@mixin laptop-height {
+    @media (max-height: #{$laptop-height}) {
+        @content
+    }
+}
+

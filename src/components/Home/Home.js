@@ -5,7 +5,7 @@ import style from "./Home.scss";
 export default class Home extends Component {
 	render() {
 		return (
-			<div className={style.homeContainer}>
+			<div id={style.homeContainer}>
                 <TagLineCircle />
                 <div className={style.nextSectionNavContainer}>
                     <img src={NextSection} className={style.nextSectionNav} />

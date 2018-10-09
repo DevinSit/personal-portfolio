@@ -1,5 +1,6 @@
-@import "style/_reset.scss";
+@import "style/_colors.scss";
 @import "style/_mixins.scss";
+@import "style/_reset.scss";
 
 h1, h2, h3, h4, h5, h6 {
     @include header-font();

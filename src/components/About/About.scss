@@ -1,0 +1,59 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_media_queries.scss";
+@import "style/_mixins.scss";
+
+#aboutContainer {
+    align-items: center;
+    background-color: $color-light;
+    display: flex;
+    flex-direction: column;
+    padding: $default-spacing*3 $default-spacing*2;
+    width: 100%;
+
+    .aboutContent {
+        height: 100%;
+        max-width: $section-width;
+
+        .header {
+            color: $color-background;
+            letter-spacing: 3px;
+            font-size: $header-text-size;
+            margin-bottom: $default-spacing * 2;
+            text-align: center;
+            width: 100%;
+        }
+
+        .body {
+            height: 100%;
+
+            .paragraph{
+                color: $color-background;
+                font-size: $normal-text-size;
+                letter-spacing: 1px;
+                line-height: 2;
+
+                &:first-child {
+                    margin-bottom: $default-spacing;
+                }
+
+                @include phone-width {
+                    line-height: 1.5;
+                }
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+
+            .italic {
+                font-style: italic;
+            }
+
+            .highlight {
+                color: $color-primary;
+                font-weight: bold;
+            }
+        }
+    }
+}

@@ -1,5 +1,9 @@
 $default-spacing: 16px;
-$normal-text-size: 12pt;
+
+$header-text-size: 30pt;
+$normal-text-size: 11pt;
 
 $header-height: $default-spacing * 4;
-$screen-height: calc(100% - #{$header-height});
+$screen-height: calc(100vh - #{$header-height});
+
+$section-width: 850px;

@@ -1,5 +1,5 @@
 import {Component} from "preact";
-import {Header, Home} from "components/";
+import {About, Header, Home} from "components/";
 import "./App.scss";
 
 export default class App extends Component {
@@ -8,6 +8,7 @@ export default class App extends Component {
 			<div id="app">
                 <Header />
                 <Home />
+                <About />
 			</div>
 		);
 	}
