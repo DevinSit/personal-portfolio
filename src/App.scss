@@ -1,0 +1,13 @@
+@import "style/_reset.scss";
+@import "style/_mixins.scss";
+
+h1, h2, h3, h4, h5, h6 {
+    @include header-font();
+}
+
+html, body, #app {
+    @include body-font();
+
+    height: 100%;
+    width: 100%;
+}
