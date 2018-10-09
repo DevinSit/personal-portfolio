@@ -1,8 +1,8 @@
 import {Component} from "preact";
 import Logo from "assets/Logo.svg";
-import style from "./Header.scss";
+import style from "./NavBar.scss";
 
-export default class Header extends Component {
+export default class NavBar extends Component {
     onNavClick = (id) => () => {
         const element = document.getElementById(id);
         element.scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
@@ -10,7 +10,7 @@ export default class Header extends Component {
 
     render() {
         return (
-            <header id={style.header}>
+            <header id={style.navbar}>
                 <img src={Logo} className={style.logo} />
                 <nav className={style.nav}>
                     <a

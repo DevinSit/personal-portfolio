@@ -1,9 +1,9 @@
 import About from "./About";
-import Header from "./Header";
+import NavBar from "./NavBar";
 import Home from "./Home";
 
 export {
     About,
-    Header,
+    NavBar,
     Home
 };
