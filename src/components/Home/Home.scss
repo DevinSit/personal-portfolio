@@ -2,45 +2,16 @@
 @import "style/_dimens.scss";
 @import "style/_mixins.scss";
 
-.header {
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
-    padding: $default-spacing $default-spacing*4;
-
-    .logo {
-        height: $default-spacing * 3.5;
-        width: $default-spacing * 3.5;
-    }
-
-    .nav {
-        color: $color-light;
-
-        .navItem {
-            @include header-font();
-
-            font-size: $normal-text-size;
-            letter-spacing: 3px;
-            padding: 0 $default-spacing * 1.5;
-
-            &:last-child {
-                padding-right: 0;
-            }
-        }
-    }
-}
-
 .homeContainer {
     align-items: center;
     background-color: $color-background;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: $screen-height;
     width: 100%;
 
     .home {
         width: 100%;
     }
-
 }
 

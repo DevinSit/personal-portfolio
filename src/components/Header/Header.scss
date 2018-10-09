@@ -1,0 +1,35 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_mixins.scss";
+
+#header {
+    align-items: center;
+    background-color: $color-background;
+    display: flex;
+    height: $header-height;
+    justify-content: space-between;
+    padding: 0 $default-spacing*4;
+
+    .logo {
+        cursor: pointer;
+        height: $default-spacing * 3;
+        width: $default-spacing * 3;
+    }
+
+    .nav {
+        color: $color-light;
+        cursor: pointer;
+
+        .navItem {
+            @include header-font();
+
+            font-size: $normal-text-size;
+            letter-spacing: 3px;
+            padding: 0 $default-spacing * 1.5;
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+}
