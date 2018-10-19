@@ -19,7 +19,14 @@ export default class NavBar extends Component {
                     >
                         ABOUT
                     </a>
-                    <a className={style.navItem}>SKILLS</a>
+
+                    <a
+                        className={style.navItem}
+                        onClick={this.onNavClick("skillsContainer")}
+                    >
+                        SKILLS
+                    </a>
+
                     <a className={style.navItem}>RESUME</a>
                     <a className={style.navItem}>CONTACT</a>
                 </nav>

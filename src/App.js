@@ -1,5 +1,5 @@
 import {Component} from "preact";
-import {About, NavBar, Home} from "components/";
+import {About, NavBar, Home, Skills} from "components/";
 import "./App.scss";
 
 export default class App extends Component {
@@ -9,6 +9,7 @@ export default class App extends Component {
                 <NavBar />
                 <Home />
                 <About />
+                <Skills />
 			</div>
 		);
 	}
