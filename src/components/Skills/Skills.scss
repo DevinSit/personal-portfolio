@@ -5,4 +5,51 @@
 
 #skillsContainer {
     display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
+    .header {
+        display: flex;
+        width: 100%;
+
+        h1 {
+            font-size: $header-text-size;
+        }
+
+        .headerLeft {
+            background-color: $color-background;
+            flex: 1;
+            text-align: right;
+
+            h1 {
+                color: $color-light;
+            }
+        }
+
+        .headerRight {
+            background-color: $color-light;
+            flex: 1;
+
+            h1 {
+                color: $color-background;
+            }
+        }
+    }
+
+    .skillsContent {
+        display: flex;
+        height: 100%;
+
+        .skillSelector {
+            background-color: $color-background;
+            color: $color-light;
+            flex: 1;
+        }
+
+        .skillDescription {
+            background-color: $color-light;
+            flex: 1;
+        }
+    }
 }
