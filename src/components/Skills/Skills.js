@@ -11,7 +11,7 @@ const SKILLS = [
 export default class Skills extends Component {
     render() {
         return (
-            <div id={style.skillsContainer}>
+            <div id={style.skills}>
                 <Header />
                 <ContentHeader />
 

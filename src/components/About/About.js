@@ -4,7 +4,7 @@ import style from "./About.scss";
 export default class About extends Component {
 	render() {
 		return (
-			<div id={style.aboutContainer}>
+			<div id={style.about}>
                 <div className={style.aboutContent}>
                     <h1 className={style.header}>ABOUT ME</h1>
                     <div className={style.body}>
