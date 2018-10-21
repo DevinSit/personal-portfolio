@@ -3,53 +3,153 @@
 @import "style/_media_queries.scss";
 @import "style/_mixins.scss";
 
+$content-side-padding: $default-spacing * 3;
+
 #skillsContainer {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
 
-    .header {
+    .skillsContent {
         display: flex;
-        width: 100%;
+        height: 100%;
+    }
+}
 
-        h1 {
-            font-size: $header-text-size;
+.header {
+    display: flex;
+    flex-shrink: 0;
+    width: 100%;
+
+    .headerText {
+        letter-spacing: $header-letter-spacing;
+        font-size: $header-text-size;
+        padding: $default-spacing*3 2px;
+    }
+
+    .headerLeft {
+        background-color: $color-background;
+        flex: 1;
+        text-align: right;
+
+        .headerText {
+            color: $color-light;
         }
+    }
 
-        .headerLeft {
-            background-color: $color-background;
-            flex: 1;
-            text-align: right;
+    .headerRight {
+        background-color: $color-light;
+        flex: 1;
 
-            h1 {
-                color: $color-light;
+        .headerText {
+            color: $color-background;
+        }
+    }
+}
+
+.contentHeader {
+    height: $default-spacing * 8;
+
+    .contentHeaderLeft {
+        padding-right: $content-side-padding;
+
+        .skillSelectorDescription {
+            color: $color-light;
+            letter-spacing: $paragraph-letter-spacing;
+            line-height: $paragraph-line-height;
+            font-size: $normal-text-size;
+
+            &:first-child {
+                /* Pull up the first line to match evenly with skillDescriptionHeader */
+                margin-top: $paragraph-line-height-correction;
             }
-        }
 
-        .headerRight {
-            background-color: $color-light;
-            flex: 1;
-
-            h1 {
-                color: $color-background;
+            span {
+                color: $color-primary;
+                font-weight: bold;
             }
         }
     }
 
-    .skillsContent {
-        display: flex;
-        height: 100%;
+    .contentHeaderRight {
+        padding-left: $content-side-padding;
 
-        .skillSelector {
-            background-color: $color-background;
-            color: $color-light;
-            flex: 1;
+        .skillDescriptionHeader {
+            color: $color-background;
+            font-size: 20pt;
+            font-weight: bold;
+            letter-spacing: $header-letter-spacing - 1;
+            text-align: left;
         }
+    }
+}
 
-        .skillDescription {
-            background-color: $color-light;
-            flex: 1;
+.skillSelectorContainer {
+    background-color: $color-background;
+    color: $color-light;
+    flex: 1;
+    padding: 0 $content-side-padding;
+    text-align: right;
+
+    .skillSelector {
+        .skillSelectorItem {
+            align-items: center;
+            color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            font-weight: bold;
+            height: $default-spacing;
+            letter-spacing: $paragraph-letter-spacing;
+            font-size: $normal-text-size;
+            justify-content: flex-end;
+            margin-bottom: $default-spacing * 1.5;
+            margin-right: $default-spacing * 2;
+
+            &.selectedItem {
+                color: $color-primary;
+                font-weight: bold;
+                margin-right: 0;
+            }
+
+            .selectedCircle {
+                border: 1.5px solid $color-primary;
+                border-radius: 50%;
+                height: $default-spacing;
+                margin-left: $default-spacing;
+                width: $default-spacing;
+            }
+        }
+    }
+}
+
+$skill-description-max-width: 450px;
+
+.skillDescriptionContainer {
+    background-color: $color-light;
+    flex: 1;
+    padding: 0 $content-side-padding;
+
+    .skillDescription {
+        letter-spacing: $paragraph-letter-spacing;
+        line-height: $paragraph-line-height;
+        font-size: $normal-text-size;
+        margin-top: $paragraph-line-height-correction; /* Pull up to match evenly with skillSelector */
+        max-width: $skill-description-max-width;
+
+        .highlight {
+            font-weight: bold;
+        }
+    }
+
+    .skillImages {
+        display: flex;
+        justify-content: space-around;
+        margin-top: $default-spacing * 2;
+        max-width: $skill-description-max-width;
+
+        .skillImage {
+            height: $default-spacing * 5;
+            width: $default-spacing * 5;
         }
     }
 }

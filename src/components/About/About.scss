@@ -17,7 +17,7 @@
 
         .header {
             color: $color-background;
-            letter-spacing: 3px;
+            letter-spacing: $header-letter-spacing;
             font-size: $header-text-size;
             margin-bottom: $default-spacing * 2;
             text-align: center;
@@ -30,8 +30,8 @@
             .paragraph {
                 color: $color-background;
                 font-size: $normal-text-size;
-                letter-spacing: 1px;
-                line-height: 2;
+                letter-spacing: $paragraph-letter-spacing;
+                line-height: $paragraph-line-height;
 
                 &:first-child {
                     margin-bottom: $default-spacing;
