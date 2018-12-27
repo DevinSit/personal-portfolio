@@ -1,0 +1,48 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_media_queries.scss";
+@import "style/_mixins.scss";
+
+#resume {
+    align-items: center;
+    background-color: $color-background-light;
+    display: flex;
+    flex-direction: column;
+    padding: $default-spacing*3 $default-spacing*2;
+    width: 100%;
+
+    .resume-content {
+        height: 100%;
+        max-width: $section-width;
+
+        .resume-body {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .resume-paragraph {
+                color: $color-background;
+                font-size: $large-text-size;
+                letter-spacing: $paragraph-letter-spacing;
+                font-style: italic;
+                margin-bottom: $default-spacing;
+            }
+
+            .resume-download {
+                background: none;
+                border: 2px solid $color-primary;
+                color: $color-primary;
+                font-size: $normal-text-size;
+                margin-top: $default-spacing * 2;
+                padding: $default-spacing*1.25 $default-spacing*2.5;
+                transition: all 0.1s;
+
+                &:hover {
+                    background-color: $color-primary;
+                    color: $color-background-light;
+                }
+            }
+        }
+    }
+}

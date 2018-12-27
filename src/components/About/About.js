@@ -1,4 +1,5 @@
 import {Component} from "preact";
+import {SectionHeader} from "components/common";
 import style from "./About.scss";
 
 export default class About extends Component {
@@ -6,7 +7,8 @@ export default class About extends Component {
 		return (
 			<div id={style.about}>
                 <div className={style.aboutContent}>
-                    <h1 className={style.header}>ABOUT ME</h1>
+                    <SectionHeader text="ABOUT ME" />
+
                     <div className={style.body}>
                         <p className={style.paragraph}>
                             <span className={style.bold}>Just who is this Devin Sit guy anyways?</span> Well, one could say that I’m a <span className={style.bold}>student</span> at the University of Ottawa studying Software Engineering. One could also say that I’m a <span className={style.bold}>fast learner</span> and a <span className={style.bold}>pragmatist</span> — someone who can quickly pick up new technologies and apply them effectively in a logical and methodical manner.

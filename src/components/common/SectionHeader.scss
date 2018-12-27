@@ -1,0 +1,11 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+
+.sectionHeader {
+    color: $color-background;
+    letter-spacing: $header-letter-spacing;
+    font-size: $header-text-size;
+    margin-bottom: $default-spacing * 2;
+    text-align: center;
+    width: 100%;
+}
