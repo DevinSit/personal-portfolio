@@ -14,7 +14,7 @@ export default class NavBar extends Component {
         element.scrollIntoView({behavior: "smooth", block: "start", inline: "start"});
 
         // Update URL hash
-        // Don't want to update window.location.hash by itself because that doesn't do smooth scroll 
+        // Don't want to update window.location.hash by itself because that doesn't do smooth scroll
         if (history.pushState) {
             history.pushState(null, null, `#${id}`)
         } else {
@@ -41,8 +41,19 @@ export default class NavBar extends Component {
                         SKILLS
                     </a>
 
-                    <a className={style.navItem}>RESUME</a>
-                    <a className={style.navItem}>CONTACT</a>
+                    <a
+                        className={style.navItem}
+                        onClick={this.onNavClick("resume")}
+                    >
+                        RESUME
+                    </a>
+
+                    <a
+                        className={style.navItem}
+                        onClick={this.onNavClick("contact")}
+                    >
+                        CONTACT
+                    </a>
                 </nav>
             </header>
         );

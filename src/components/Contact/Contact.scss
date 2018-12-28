@@ -1,0 +1,58 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_media_queries.scss";
+@import "style/_mixins.scss";
+
+#contact {
+    align-items: center;
+    background-color: $color-background;
+    display: flex;
+    flex-direction: column;
+    padding: $default-spacing*3 $default-spacing*2;
+    width: 100%;
+
+    .contact-content {
+        height: 100%;
+        max-width: $section-width;
+
+        .sectionHeader {
+            color: $color-light;
+        }
+
+        .contact-body {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .contact-paragraph {
+                color: $color-light;
+                font-size: $large-text-size;
+                letter-spacing: $paragraph-letter-spacing;
+                margin-bottom: $default-spacing * 3;
+            }
+
+            .contact-info-container {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: $default-spacing * 6;
+
+                .contact-info {
+                    align-items: center;
+                    display: flex;
+                    margin-bottom: $default-spacing * 2;
+
+                    img {
+                        margin-right: $default-spacing * 2;
+                        width: 24px;
+                    }
+
+                    p {
+                        color: $color-light;
+                        font-size: $normal-text-size;
+                    }
+                }
+            }
+        }
+    }
+}
