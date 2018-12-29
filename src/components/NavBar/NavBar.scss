@@ -9,18 +9,25 @@
     height: $header-height;
     justify-content: space-between;
     padding: 0 $default-spacing*4;
+    position: fixed;
+    transition: box-shadow 0.2s;
+    width: 100%;
 
-    .logo {
+    &.navbar-scrolled {
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-logo {
         cursor: pointer;
         height: $default-spacing * 3;
         width: $default-spacing * 3;
     }
 
-    .nav {
+    .navbar-nav {
         color: $color-light;
         cursor: pointer;
 
-        .navItem {
+        .navbar-nav-item {
             @include header-font();
 
             font-size: $normal-text-size;

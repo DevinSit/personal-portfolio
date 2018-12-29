@@ -7,11 +7,14 @@ export default class App extends Component {
 		return (
 			<div id="app">
                 <NavBar />
-                <Home />
-                <About />
-                <Skills />
-                <Resume />
-                <Contact />
+
+                <div id="app-content">
+                    <Home />
+                    <About />
+                    <Skills />
+                    <Resume />
+                    <Contact />
+                </div>
 			</div>
 		);
 	}
