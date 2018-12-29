@@ -1,6 +1,6 @@
 import {Component} from "preact";
 import classNames from "classnames";
-import {debounceWithLeading} from "utils/helpers";
+import {debounceWithLeading, scrollTo} from "utils/helpers";
 import Logo from "assets/Logo.svg";
 import "./NavBar.scss";
 
@@ -21,23 +21,7 @@ export default class NavBar extends Component {
         window.removeEventListener("scroll", this.scroll);
     }
 
-    onNavClick = (id) => () => {
-        const element = document.getElementById(id);
-        const headerOffset = 80;  // The $header-height variable in styles/_dimens.scss
-        const bodyRect = document.body.getBoundingClientRect().top;
-        const elementPosition = element.getBoundingClientRect().top - bodyRect;
-        const offsetPosition = elementPosition - headerOffset;
-
-        window.scrollTo({top: offsetPosition, behavior: "smooth"});
-
-        // Update URL hash
-        // Don't want to update window.location.hash by itself because that doesn't do smooth scroll
-        if (history.pushState) {
-            history.pushState(null, null, `#${id}`)
-        } else {
-            window.location.hash = `#${id}`;
-        }
-    };
+    onNavClick = (id) => () => scrollTo(id);
 
     onScroll = debounceWithLeading(() => {
         this.setState({isScrolled: window.pageYOffset > 0});

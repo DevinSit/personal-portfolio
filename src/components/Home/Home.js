@@ -1,4 +1,5 @@
 import {Component} from "preact";
+import {scrollTo} from "utils/helpers";
 import NextSection from "assets/NextSection.svg";
 import "./Home.scss";
 
@@ -13,14 +14,19 @@ const TagLineCircle = () => (
 );
 
 export default class Home extends Component {
+    onNextSectionClick = () => scrollTo("about");
+
 	render() {
 		return (
 			<div id="home">
                 <TagLineCircle />
 
-                <div className="home-next-section-nav-container">
+                <a
+                    className="home-next-section-nav-container"
+                    onClick={this.onNextSectionClick}
+                >
                     <img src={NextSection} className="home-next-section-nav" />
-                </div>
+                </a>
 			</div>
 		);
 	}
