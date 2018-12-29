@@ -48,7 +48,7 @@ export default class NavBar extends Component {
 
         return (
             <header id="navbar" className={classNames({"navbar-scrolled": isScrolled})}>
-                <img src={Logo} className="navbar-logo" />
+                <a onClick={this.onNavClick("home")}><img src={Logo} className="navbar-logo" /></a>
                 <nav className="navbar-nav">
                     <a
                         className="navbar-nav-item"

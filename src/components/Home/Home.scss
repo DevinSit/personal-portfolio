@@ -5,7 +5,7 @@
 
 $circle-diameter: 70vmin;
 
-#homeContainer {
+#home {
     align-items: center;
     background-color: $color-background;
     display: flex;
@@ -14,24 +14,24 @@ $circle-diameter: 70vmin;
     justify-content: center;
     width: 100%;
 
-    .nextSectionNavContainer {
+    .home-next-section-nav-container {
         cursor: pointer;
         margin-bottom: $default-spacing;
         padding: $default-spacing;
 
-        .nextSectionNav {
+        .home-next-section-nav {
             height: $default-spacing;
         }
     }
 }
 
-.tagLineContainer {
+.tag-line-container {
     display: flex;
     flex-direction: column;
     height: 100%;
     justify-content: center;
 
-    .tagLineCircle {
+    .tag-line-circle {
         align-items: center;
         border: 3px solid $color-primary;
         border-radius: 50%;
@@ -42,7 +42,7 @@ $circle-diameter: 70vmin;
         width: $circle-diameter;
         justify-content: center;
 
-        .subTagLine {
+        .sub-tag-line {
             @include body-font();
 
             font-size: 3vmin;
@@ -55,7 +55,7 @@ $circle-diameter: 70vmin;
             }
         }
 
-        .tagLine {
+        .tag-line {
             @include header-font();
 
             font-size: 7vmin;

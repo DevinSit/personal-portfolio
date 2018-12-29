@@ -1,26 +1,27 @@
 import {Component} from "preact";
 import NextSection from "assets/NextSection.svg";
-import style from "./Home.scss";
+import "./Home.scss";
+
+const TagLineCircle = () => (
+    <div className="tag-line-container">
+        <div className="tag-line-circle">
+            <h3 className="sub-tag-line">One of a kind</h3>
+            <h1 className="tag-line">Full Spectrum</h1>
+            <h1 className="tag-line">Developer</h1>
+        </div>
+    </div>
+);
 
 export default class Home extends Component {
 	render() {
 		return (
-			<div id={style.homeContainer}>
+			<div id="home">
                 <TagLineCircle />
-                <div className={style.nextSectionNavContainer}>
-                    <img src={NextSection} className={style.nextSectionNav} />
+
+                <div className="home-next-section-nav-container">
+                    <img src={NextSection} className="home-next-section-nav" />
                 </div>
 			</div>
 		);
 	}
 }
-
-const TagLineCircle = () => (
-    <div className={style.tagLineContainer}>
-        <div className={style.tagLineCircle}>
-            <h3 className={style.subTagLine}>One of a kind</h3>
-            <h1 className={style.tagLine}>Full Spectrum</h1>
-            <h1 className={style.tagLine}>Developer</h1>
-        </div>
-    </div>
-);
