@@ -1,14 +1,14 @@
 steps:
-    # Install npm dependencies
-    - name: "gcr.io/cloud-builders/npm"
+    - id: "Install npm dependencies"
+      name: "gcr.io/cloud-builders/npm"
       args: ["install"]
 
-    # Build the static site files
-    - name: "gcr.io/cloud-builders/npm"
+    - id: "Build static site files"
+      name: "gcr.io/cloud-builders/npm"
       args: ["run", "build"]
 
-    # Deploy the site
-    - name: "gcr.io/cloud-builders/gcloud"
+    - id: "Deploy site"
+      name: "gcr.io/cloud-builders/gcloud"
       entrypoint: sh
       args:
           - -c

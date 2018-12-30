@@ -1,23 +1,36 @@
 import {Component} from "preact";
 import classNames from "classnames";
-import SkillImages from "assets/skillImages";
-import Logo from "assets/Logo.svg";
+import {SKILLS, SKILL_DESCRIPTIONS} from "./SkillsContent";
 import style from "./Skills.scss";
 
-const SKILLS = [
-    "FRONTEND", "BACKEND", "MOBILE", "DESIGN", "DEVOPS", "CLOUD", "DATA"
-];
-
 export default class Skills extends Component {
+    state = {
+        selectedSkill: SKILLS[0]
+    }
+
+    onSkillSelected = (skill) => () => this.setState({selectedSkill: skill});
+
     render() {
+        const {selectedSkill} = this.state;
+
+        const selectedSkillDescription = SKILL_DESCRIPTIONS[selectedSkill];
+
         return (
             <div id={style.skills}>
                 <Header />
                 <ContentHeader />
 
                 <div className={style.skillsContent}>
-                    <SkillSelector />
-                    <SkillDescription />
+                    <SkillSelector
+                        skills={SKILLS}
+                        selectedSkill={selectedSkill}
+                        onSkillSelected={this.onSkillSelected}
+                    />
+
+                    <SkillDescription
+                        Description={selectedSkillDescription.description}
+                        images={selectedSkillDescription.images}
+                    />
                 </div>
             </div>
         );
@@ -51,40 +64,43 @@ const ContentHeader = () => (
     </div>
 );
 
-const SkillSelector = () => (
+const SkillSelector = ({skills, selectedSkill, onSkillSelected}) => (
     <div className={style.skillSelectorContainer}>
-        <ul className={style.skillSelector}>
-            {SKILLS.map((skill, index) => <SkillSelectorItem text={skill} selected={index === 0}/>)}
-        </ul>
+        <div className={style.skillSelector}>
+            {
+                skills.map((skill, index) => (
+                    <SkillSelectorItem
+                        text={skill}
+                        selected={skill === selectedSkill}
+                        onClick={onSkillSelected(skill)}
+                    />
+                ))
+            }
+        </div>
     </div>
 );
 
-const SkillSelectorItem = ({text = "", selected = false}) => (
-    <li
+const SkillSelectorItem = ({text = "", selected = false, onClick}) => (
+    <a
         className={classNames(
             style.skillSelectorItem,
             {[style.selectedItem]: selected}
         )}
+        onClick={onClick}
     >
         <span>{text}</span>
         {selected && <div className={style.selectedCircle} />}
-    </li>
+    </a>
 );
 
-class SkillDescription extends Component {
-    render() {
-        return (
-            <div className={style.skillDescriptionContainer}>
-                <p className={style.skillDescription}>
-                    Ah, frontend development — my bread and butter; what first got me into web development and what I've gone on to become rather comfortable with. These days, I'm heavily into using <span className={style.highlight}>React</span> and <span className={style.highlight}>Redux</span> with <span className={style.highlight}>Sass</span> to build <span className={style.highlight}>Single Page Applications</span>. Molding Flexbox and React components to my whim, I've come to really enjoy building beautiful, interactive interfaces from scratch.
-                </p>
+const SkillDescription = ({Description, images = []}) => (
+    <div className={style.skillDescriptionContainer}>
+        <p className={style.skillDescription}>
+            {Description && <Description />}
+        </p>
 
-                <div className={style.skillImages}>
-                    <img src={SkillImages.ReactLogo} className={style.skillImage} />
-                    <img src={SkillImages.ReduxLogo} className={style.skillImage} />
-                    <img src={SkillImages.SassLogo} className={style.skillImage} />
-                </div>
-            </div>
-        );
-    }
-}
+        <div className={style.skillImages}>
+            {images.map((image) => <img src={image} className={style.skillImage} />)}
+        </div>
+    </div>
+);

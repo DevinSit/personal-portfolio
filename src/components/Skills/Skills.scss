@@ -93,9 +93,14 @@ $content-side-padding: $default-spacing * 3;
     text-align: right;
 
     .skillSelector {
+        align-items: flex-end;
+        display: flex;
+        flex-direction: column;
+
         .skillSelectorItem {
             align-items: center;
             color: rgba(255, 255, 255, 0.7);
+            cursor: pointer;
             display: flex;
             font-weight: bold;
             height: $default-spacing;
@@ -135,10 +140,6 @@ $skill-description-max-width: 450px;
         font-size: $normal-text-size;
         margin-top: $paragraph-line-height-correction; /* Pull up to match evenly with skillSelector */
         max-width: $skill-description-max-width;
-
-        .highlight {
-            font-weight: bold;
-        }
     }
 
     .skillImages {
