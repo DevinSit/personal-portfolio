@@ -11,7 +11,7 @@
 @mixin section-padding() {
     padding: $default-spacing*3 $default-spacing*2;
 
-    @include navbar-break {
+    @include breakpoint-navbar {
         padding: $default-spacing*2 $default-spacing*1.5
     }
 }
@@ -22,7 +22,7 @@
     letter-spacing: $paragraph-letter-spacing;
     line-height: $paragraph-line-height;
 
-    @include navbar-break {
+    @include breakpoint-navbar {
         line-height: 1.8;
         font-size: $mobile-normal-text-size;
     }
@@ -33,7 +33,7 @@
 
     font-size: $large-text-size;
 
-    @include navbar-break {
+    @include breakpoint-navbar {
         font-size: $mobile-large-text-size;
     }
 }
@@ -42,7 +42,7 @@
     font-size: $header-text-size;
     letter-spacing: $header-letter-spacing;
 
-    @include navbar-break {
+    @include breakpoint-navbar {
         font-size: $mobile-header-text-size;
     }
 }

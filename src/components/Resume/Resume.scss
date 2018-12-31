@@ -29,7 +29,7 @@
                 margin-bottom: $default-spacing;
                 text-align: center;
 
-                @include navbar-break {
+                @include breakpoint-navbar {
                     margin-bottom: $default-spacing / 2;
                 }
             }

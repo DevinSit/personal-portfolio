@@ -14,7 +14,7 @@
     transition: box-shadow 0.2s;
     width: 100%;
 
-    @include navbar-break {
+    @include breakpoint-navbar {
         display: none;
     }
 

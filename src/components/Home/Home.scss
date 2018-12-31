@@ -50,7 +50,7 @@ $circle-diameter: 70vmin;
             letter-spacing: 2px;
             margin-bottom: $default-spacing * 2;
 
-            @include navbar-break {
+            @include breakpoint-navbar {
                 margin-bottom: $default-spacing * 1.5;
             }
         }
@@ -63,7 +63,7 @@ $circle-diameter: 70vmin;
             letter-spacing: 8px;
             margin: $default-spacing/2 0;
 
-            @include navbar-break {
+            @include breakpoint-navbar {
                 font-size: 5.5vmin;
             }
         }
