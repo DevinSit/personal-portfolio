@@ -1,6 +1,7 @@
 @import "style/_colors.scss";
 @import "style/_dimens.scss";
 @import "style/_mixins.scss";
+@import "style/_media_queries.scss";
 @import "style/_reset.scss";
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,4 +17,8 @@ html, body, #app, #app-content {
 
 #app-content {
     padding-top: $header-height;
+
+    @include navbar-break {
+        padding-top: 0;
+    }
 }

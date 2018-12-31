@@ -4,41 +4,26 @@
 @import "style/_mixins.scss";
 
 #about {
+    @include section-padding();
+
     align-items: center;
     background-color: $color-background-light;
     display: flex;
     flex-direction: column;
-    padding: $default-spacing*3 $default-spacing*2;
     width: 100%;
 
     .aboutContent {
         height: 100%;
         max-width: $section-width;
 
-        .header {
-            color: $color-background;
-            letter-spacing: $header-letter-spacing;
-            font-size: $header-text-size;
-            margin-bottom: $default-spacing * 2;
-            text-align: center;
-            width: 100%;
-        }
-
         .body {
             height: 100%;
 
             .paragraph {
-                color: $color-background;
-                font-size: $normal-text-size;
-                letter-spacing: $paragraph-letter-spacing;
-                line-height: $paragraph-line-height;
+                @include normal-paragraph();
 
                 &:first-child {
                     margin-bottom: $default-spacing;
-                }
-
-                @include phone-width {
-                    line-height: 1.5;
                 }
             }
 

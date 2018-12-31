@@ -4,8 +4,11 @@ $header-text-size: 30pt;
 $large-text-size: 16pt;
 $normal-text-size: 12pt;
 
+$mobile-header-text-size: 20pt;
+$mobile-large-text-size: 12pt;
+$mobile-normal-text-size: 10pt;
+
 $header-height: $default-spacing * 5;
-$screen-height: calc(100vh - #{$header-height});
 
 $section-width: 850px;
 

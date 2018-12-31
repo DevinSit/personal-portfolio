@@ -4,11 +4,12 @@
 @import "style/_mixins.scss";
 
 #resume {
+    @include section-padding();
+
     align-items: center;
     background-color: $color-background-light;
     display: flex;
     flex-direction: column;
-    padding: $default-spacing*3 $default-spacing*2;
     width: 100%;
 
     .resume-content {
@@ -22,11 +23,15 @@
             height: 100%;
 
             .resume-paragraph {
-                color: $color-background;
-                font-size: $large-text-size;
-                letter-spacing: $paragraph-letter-spacing;
+                @include large-paragraph();
+
                 font-style: italic;
                 margin-bottom: $default-spacing;
+                text-align: center;
+
+                @include navbar-break {
+                    margin-bottom: $default-spacing / 2;
+                }
             }
 
             .resume-download {

@@ -4,11 +4,12 @@
 @import "style/_mixins.scss";
 
 #contact {
+    @include section-padding();
+
     align-items: center;
     background-color: $color-background;
     display: flex;
     flex-direction: column;
-    padding: $default-spacing*3 $default-spacing*2;
     width: 100%;
 
     .contact-content {
@@ -26,10 +27,11 @@
             height: 100%;
 
             .contact-paragraph {
+                @include large-paragraph();
+
                 color: $color-light;
-                font-size: $large-text-size;
-                letter-spacing: $paragraph-letter-spacing;
                 margin-bottom: $default-spacing * 3;
+                text-align: center;
             }
 
             .contact-info-container {

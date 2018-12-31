@@ -1,5 +1,6 @@
 @import "style/_colors.scss";
 @import "style/_dimens.scss";
+@import "style/_media_queries.scss";
 @import "style/_mixins.scss";
 
 #navbar {
@@ -12,6 +13,10 @@
     position: fixed;
     transition: box-shadow 0.2s;
     width: 100%;
+
+    @include navbar-break {
+        display: none;
+    }
 
     &.navbar-scrolled {
         box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);

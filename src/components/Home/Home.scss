@@ -10,7 +10,7 @@ $circle-diameter: 70vmin;
     background-color: $color-background;
     display: flex;
     flex-direction: column;
-    height: $screen-height;
+    height: 100%;
     justify-content: center;
     width: 100%;
 
@@ -45,26 +45,26 @@ $circle-diameter: 70vmin;
         .sub-tag-line {
             @include body-font();
 
-            font-size: 3vmin;
+            font-size: 3.5vmin;
             font-style: italic;
             letter-spacing: 2px;
-            margin-bottom: $default-spacing;
+            margin-bottom: $default-spacing * 2;
 
-            @include phone-width {
-                font-size: 2.5vmin;
+            @include navbar-break {
+                margin-bottom: $default-spacing * 1.5;
             }
         }
 
         .tag-line {
             @include header-font();
 
-            font-size: 7vmin;
+            font-size: 6.5vmin;
             font-weight: bold;
             letter-spacing: 8px;
             margin: $default-spacing/2 0;
 
-            @include phone-width {
-                font-size: 5vmin;
+            @include navbar-break {
+                font-size: 5.5vmin;
             }
         }
     }

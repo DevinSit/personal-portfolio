@@ -1,6 +1,8 @@
 $desktop-width: 1350px;
 $tablet-width: 767px;
-$phone-width: 400px;
+$phone-width: 450px;
+
+$navbar-break-width: 850px;
 
 $laptop-height: 767px;
 
@@ -9,6 +11,7 @@ $laptop-height: 767px;
         @content
     }
 }
+
 @mixin tablet-width {
     @media (max-width: #{$tablet-width}) {
         @content
@@ -27,3 +30,9 @@ $laptop-height: 767px;
     }
 }
 
+
+@mixin navbar-break {
+    @media (max-width: #{$navbar-break-width}) {
+        @content
+    }
+}

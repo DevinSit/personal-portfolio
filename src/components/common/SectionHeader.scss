@@ -1,11 +1,17 @@
 @import "style/_colors.scss";
 @import "style/_dimens.scss";
+@import "style/_media_queries.scss";
+@import "style/_mixins.scss";
 
 .sectionHeader {
+    @include section-header();
+
     color: $color-background;
-    letter-spacing: $header-letter-spacing;
-    font-size: $header-text-size;
     margin-bottom: $default-spacing * 2;
     text-align: center;
     width: 100%;
+
+    @include navbar-break {
+        margin-bottom: $default-spacing * 1.5;
+    }
 }
