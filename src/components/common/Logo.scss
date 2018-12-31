@@ -1,0 +1,7 @@
+@import "style/_dimens.scss";
+
+.logo {
+    cursor: pointer;
+    height: $default-spacing * 3;
+    width: $default-spacing * 3;
+}

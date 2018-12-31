@@ -14,6 +14,17 @@ $circle-diameter: 70vmin;
     justify-content: center;
     width: 100%;
 
+    .home-logo {
+        display: none;
+        left: $default-spacing;
+        position: absolute;
+        top: $default-spacing;
+
+        @include breakpoint-navbar {
+            display: inline;
+        }
+    }
+
     .home-next-section-nav-container {
         cursor: pointer;
         margin-bottom: $default-spacing;

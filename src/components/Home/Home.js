@@ -1,5 +1,6 @@
 import {Component} from "preact";
 import {scrollTo} from "utils/helpers";
+import {Logo} from "components/common";
 import NextSection from "assets/NextSection.svg";
 import "./Home.scss";
 
@@ -19,6 +20,8 @@ export default class Home extends Component {
 	render() {
 		return (
 			<div id="home">
+                <Logo className="home-logo" />
+
                 <TagLineCircle />
 
                 <a

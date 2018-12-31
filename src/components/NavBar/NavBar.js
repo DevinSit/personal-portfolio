@@ -1,7 +1,7 @@
 import {Component} from "preact";
 import classNames from "classnames";
+import {Logo} from "components/common";
 import {debounceWithLeading, scrollTo} from "utils/helpers";
-import Logo from "assets/Logo.svg";
 import "./NavBar.scss";
 
 export default class NavBar extends Component {
@@ -32,7 +32,8 @@ export default class NavBar extends Component {
 
         return (
             <header id="navbar" className={classNames({"navbar-scrolled": isScrolled})}>
-                <a onClick={this.onNavClick("home")}><img src={Logo} className="navbar-logo" /></a>
+                <Logo onClick={this.onNavClick("home")} />
+
                 <nav className="navbar-nav">
                     <a
                         className="navbar-nav-item"
