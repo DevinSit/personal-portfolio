@@ -1,7 +1,6 @@
 import {Component} from "preact";
 import classNames from "classnames";
 import {Logo} from "components/common";
-import {IconMenu} from "images/";
 import {debounceWithLeading, scrollTo} from "utils/helpers";
 import "./MobileNavBar.scss";
 
@@ -23,8 +22,15 @@ export default class MobileNavBar extends Component {
 
                 <div className={classNames("circle", {"circle-expand": menuOpen})}></div>
 
-                <button className="navbar-open-button" onClick={this.onMenuClick}>
-                    <img src={IconMenu} alt="menu" />
+                <button
+                    className={classNames(
+                        "navbar-open-button", "hamburger--spin", {"is-active": menuOpen}
+                    )}
+                    onClick={this.onMenuClick}
+                >
+                    <span className="hamburger-box">
+                        <span className="hamburger-inner"></span>
+                    </span>
                 </button>
             </div>
         );
