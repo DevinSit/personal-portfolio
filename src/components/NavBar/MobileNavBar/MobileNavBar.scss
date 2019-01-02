@@ -19,7 +19,7 @@ $menu-background-size: 235vmax;
 $menu-background-z-index: 99998;
 $menu-foreground-z-index: 99999;
 
-@mixin menu-transition($transition-time: 350ms) {
+@mixin menu-transition($transition-time: 450ms) {
     transition: all $transition-time cubic-bezier(0, 0.995, 0.99, 1);
 }
 

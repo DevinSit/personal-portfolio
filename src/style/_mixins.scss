@@ -32,6 +32,7 @@
     @include normal-paragraph();
 
     font-size: $large-text-size;
+    letter-spacing: $large-paragraph-letter-spacing;
 
     @include breakpoint-navbar {
         font-size: $mobile-large-text-size;
