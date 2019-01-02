@@ -17,13 +17,7 @@ $mobile-content-side-padding: $default-spacing;
 #skills {
     display: flex;
     flex-direction: column;
-    height: 100%;
     width: 100%;
-
-    @include breakpoint-navbar {
-        /* Let it grow beyond the height of the screen for small/landscape devices. */
-        height: auto;
-    }
 
     .header {
         display: flex;
@@ -195,8 +189,8 @@ $skill-description-max-width: 450px;
         max-width: $skill-description-max-width;
 
         .skillImage {
-            height: $default-spacing * 5;
-            width: $default-spacing * 5;
+            height: $default-spacing * 4;
+            width: $default-spacing * 4;
 
             @include breakpoint-navbar {
                 height: $default-spacing * 2.5;
