@@ -12,7 +12,7 @@ export default class Contact extends Component {
 
                     <div className="contact-body">
                         <p className="contact-paragraph">
-                            <div>Interested in what you see?</div>
+                            <div>Like what you see?</div>
                             <div>Let's chat.</div>
                         </p>   
 
