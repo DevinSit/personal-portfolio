@@ -16,9 +16,9 @@ $circle-diameter: 70vmin;
 
     .home-logo {
         display: none;
-        left: $default-spacing;
+        left: $default-spacing * 1.5;
         position: absolute;
-        top: $default-spacing;
+        top: $default-spacing * 1.5;
 
         @include breakpoint-navbar {
             display: inline;
