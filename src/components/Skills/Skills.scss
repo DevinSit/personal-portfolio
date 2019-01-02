@@ -119,7 +119,7 @@ $mobile-content-side-padding: $default-spacing;
         display: flex;
         flex-direction: column;
 
-        @include phone-width {
+        @include breakpoint-mobile-width {
             /* Ensure spacing between the headers and the content. */
             padding-top: $default-spacing * 2;
         }
@@ -175,7 +175,7 @@ $skill-description-max-width: 450px;
         margin-top: $paragraph-line-height-correction; /* Pull up to match evenly with skillSelector */
         max-width: $skill-description-max-width;
 
-        @include phone-width {
+        @include breakpoint-mobile-width {
             /* Ensure spacing between the headers and the content. */
             padding-top: $default-spacing * 2;
         }

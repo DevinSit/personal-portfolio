@@ -9,7 +9,11 @@ export default class MobileNavBar extends Component {
         menuOpen: false
     }
 
-    onNavClick = (id) => () => scrollTo(id);
+    onNavClick = (id) => () => {
+        scrollTo(id);
+        this.setState({menuOpen: false});
+    };
+
     onMenuClick = () => this.setState({menuOpen: !this.state.menuOpen});
 
     render() {
@@ -17,10 +21,47 @@ export default class MobileNavBar extends Component {
 
         return (
             <div className="navbar-mobile">
-                <nav className="navbar-nav">
+                <nav className={classNames("navbar-nav", {"navbar-nav--visible": menuOpen})}>
+                    <Logo
+                        className="navbar-logo"
+                        inverted={true}
+                        onClick={this.onNavClick("home")}
+                    />
+
+                    <a
+                        className="navbar-nav-item"
+                        onClick={this.onNavClick("about")}
+                    >
+                        ABOUT
+                    </a>
+
+                    <a
+                        className="navbar-nav-item"
+                        onClick={this.onNavClick("skills")}
+                    >
+                        SKILLS
+                    </a>
+
+                    <a
+                        className="navbar-nav-item"
+                        onClick={this.onNavClick("resume")}
+                    >
+                        RESUME
+                    </a>
+
+                    <a
+                        className="navbar-nav-item"
+                        onClick={this.onNavClick("contact")}
+                    >
+                        CONTACT
+                    </a>
                 </nav>
 
-                <div className={classNames("circle", {"circle-expand": menuOpen})}></div>
+                <div 
+                    className={
+                        classNames("menu-background", {"menu-background--expand": menuOpen}
+                    )}
+                ></div>
 
                 <button
                     className={classNames(

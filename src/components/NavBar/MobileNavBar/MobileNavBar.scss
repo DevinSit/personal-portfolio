@@ -12,9 +12,16 @@ $hamburger-active-hover-opacity: 1.0;
 
 @import "style/hamburgers/hamburgers";
 
-$menu-fab-diameter: $default-spacing * 4;
 $menu-fab-spacing: $default-spacing * 1.5;
-$menu-background-circle-position: $menu-fab-spacing + ($menu-fab-diameter / 1.6);
+$menu-background-offset: -105vmax;
+$menu-background-position: $menu-fab-spacing + ($menu-fab-diameter / 2);
+$menu-background-size: 235vmax;
+$menu-background-z-index: 99998;
+$menu-foreground-z-index: 99999;
+
+@mixin menu-transition($transition-time: 350ms) {
+    transition: all $transition-time cubic-bezier(0, 0.995, 0.99, 1);
+}
 
 .navbar-mobile {
     display: none;
@@ -24,26 +31,65 @@ $menu-background-circle-position: $menu-fab-spacing + ($menu-fab-diameter / 1.6)
     }
 
     .navbar-nav {
+        @include menu-transition(150ms);
+
+        align-items: flex-end;
+        bottom: $menu-fab-spacing * 6;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        right: $menu-fab-spacing;
+        opacity: 0;
+        z-index: $menu-foreground-z-index;
+
+        @include breakpoint-mobile-landscape-height {
+            flex-direction: row;
+        }
+
+        &.navbar-nav--visible {
+            opacity: 1;
+        }
+        
+        .navbar-nav-item {
+            @include section-header();
+
+            color: $color-background;
+            margin-top: $default-spacing * 3;
+
+            @include breakpoint-mobile-landscape-height {
+                margin: 0 $default-spacing;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        .navbar-logo {
+            position: fixed;
+            top: $menu-fab-spacing;
+            left: $menu-fab-spacing;
+        }
     }
 
-    .circle {
+    .menu-background {
+        @include menu-transition();
+
         background: white;
         border-radius: 50%;
-        bottom: $menu-background-circle-position;
+        bottom: $menu-background-position;
         height: 0px;
         opacity: 1;
         position: fixed;
-        right: $menu-background-circle-position;
-        transition: all 350ms cubic-bezier(0, 0.995, 0.99, 1);
+        right: $menu-background-position;
         width: 0px;
-        z-index: 99998;
+        z-index: $menu-background-z-index;
 
-        &.circle-expand {
-            bottom: -105vmax;
-            height: 198vmax;
-            right: -105vmax;
-            transition: all 450ms cubic-bezier(0, 0.995, 0.99, 1);
-            width: 198vmax;
+        &.menu-background--expand {
+            bottom: $menu-background-offset;
+            height: $menu-background-size;
+            right: $menu-background-offset;
+            width: $menu-background-size;
         }
     }
 
@@ -55,12 +101,12 @@ $menu-background-circle-position: $menu-fab-spacing + ($menu-fab-diameter / 1.6)
         bottom: $menu-fab-spacing;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
         display: flex;
+        height: $menu-fab-diameter;
         justify-content: center;
         outline: none;
         position: fixed;
         right: $menu-fab-spacing;
-        height: $menu-fab-diameter;
         width: $menu-fab-diameter;
-        z-index: 99999;
+        z-index: $menu-foreground-z-index;
     }
 }

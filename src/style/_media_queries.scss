@@ -1,35 +1,18 @@
-$desktop-width: 1350px;
-$tablet-width: 767px;
-$phone-width: 450px;
-
+$mobile-width: 450px;
+$mobile-landscape-height: 450px;
 $breakpoint-navbar-width: 850px;
 
-$laptop-height: 767px;
-
-@mixin desktop-width {
-    @media (max-width: #{$desktop-width}) {
+@mixin breakpoint-mobile-width {
+    @media (max-width: #{$mobile-width}) {
         @content
     }
 }
 
-@mixin tablet-width {
-    @media (max-width: #{$tablet-width}) {
+@mixin breakpoint-mobile-landscape-height {
+    @media (max-height: #{$mobile-landscape-height}) {
         @content
     }
 }
-
-@mixin phone-width {
-    @media (max-width: #{$phone-width}) {
-        @content
-    }
-}
-
-@mixin laptop-height {
-    @media (max-height: #{$laptop-height}) {
-        @content
-    }
-}
-
 
 @mixin breakpoint-navbar {
     @media (max-width: #{$breakpoint-navbar-width}) {

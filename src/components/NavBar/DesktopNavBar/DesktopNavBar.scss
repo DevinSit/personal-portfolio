@@ -13,6 +13,7 @@
     position: fixed;
     transition: box-shadow 0.2s;
     width: 100%;
+    z-index: 100000;
 
     @include breakpoint-navbar {
         display: none;
@@ -30,7 +31,7 @@
             @include header-font();
 
             font-size: $normal-text-size;
-            letter-spacing: 3px;
+            letter-spacing: $header-letter-spacing;
             margin: 0 $default-spacing * 1.5;
 
             &:last-child {
