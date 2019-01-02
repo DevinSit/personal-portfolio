@@ -1,0 +1,41 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_media_queries.scss";
+@import "style/_mixins.scss";
+
+.navbar-desktop {
+    align-items: center;
+    background-color: $color-background;
+    display: flex;
+    height: $header-height;
+    justify-content: space-between;
+    padding: 0 $default-spacing*4;
+    position: fixed;
+    transition: box-shadow 0.2s;
+    width: 100%;
+
+    @include breakpoint-navbar {
+        display: none;
+    }
+
+    &.navbar-scrolled {
+        box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+    }
+
+    .navbar-nav {
+        color: $color-light;
+        cursor: pointer;
+
+        .navbar-nav-item {
+            @include header-font();
+
+            font-size: $normal-text-size;
+            letter-spacing: 3px;
+            margin: 0 $default-spacing * 1.5;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
