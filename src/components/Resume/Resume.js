@@ -12,11 +12,16 @@ export default class Resume extends Component {
                     <div className="resume-body">
                         <p className="resume-paragraph">
                             Want to learn a bit more about my experience? Need something to go?
-                        </p>   
-                        
-                        <button className="resume-download">
-                            DOWNLOAD RESUME
-                        </button>
+                        </p>
+
+                        <a
+                            className="resume-download"
+                            href="/DevinSit_Resume.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            VIEW RESUME
+                        </a>
                     </div>
                 </div>
             </div>
