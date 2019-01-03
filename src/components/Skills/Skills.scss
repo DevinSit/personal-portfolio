@@ -118,6 +118,7 @@ $mobile-content-side-padding: $default-spacing;
         align-items: flex-end;
         display: flex;
         flex-direction: column;
+        margin-bottom: $default-spacing * 8;
 
         @include breakpoint-mobile-width {
             /* Ensure spacing between the headers and the content. */
