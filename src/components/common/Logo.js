@@ -7,9 +7,9 @@ const Logo = ({className, inverted = false, onClick = () => {}}) => (
     <a className={className} onClick={onClick}>
         {
             inverted ? (
-                <img src={LogoInvertedIcon} className="logo" />
+                <img src={LogoInvertedIcon} className="logo" alt="logo" />
             ) : (
-                <img src={LogoIcon} className="logo" />
+                <img src={LogoIcon} className="logo" alt="logo" />
             )
         }
     </a>

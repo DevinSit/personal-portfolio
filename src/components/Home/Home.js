@@ -28,7 +28,7 @@ export default class Home extends Component {
                     className="home-next-section-nav-container"
                     onClick={this.onNextSectionClick}
                 >
-                    <img src={NextSection} className="home-next-section-nav" />
+                    <img src={NextSection} className="home-next-section-nav" alt="next section" />
                 </a>
 			</div>
 		);

@@ -88,7 +88,7 @@ $mobile-content-side-padding: $default-spacing;
             }
 
             span {
-                color: $color-primary;
+                color: $color-primary-light;
                 font-weight: bold;
             }
         }
@@ -148,13 +148,13 @@ $mobile-content-side-padding: $default-spacing;
             }
 
             &.selectedItem {
-                color: $color-primary;
+                color: $color-primary-light;
                 font-weight: bold;
                 margin-right: 0;
             }
 
             .selectedCircle {
-                border: 1.5px solid $color-primary;
+                border: 1.5px solid $color-primary-light;
                 border-radius: 50%;
                 height: $default-spacing;
                 margin-left: $default-spacing;

@@ -68,6 +68,7 @@ export default class MobileNavBar extends Component {
                         "navbar-open-button", "hamburger--spin", {"is-active": menuOpen}
                     )}
                     onClick={this.onMenuClick}
+                    aria-label="Open Menu"
                 >
                     <span className="hamburger-box">
                         <span className="hamburger-inner"></span>

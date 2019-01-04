@@ -36,8 +36,8 @@
 
             .resume-download {
                 background: none;
-                border: 2px solid $color-primary;
-                color: $color-primary;
+                border: 2px solid $color-primary-dark;
+                color: $color-primary-dark;
                 font-size: $normal-text-size;
                 margin-top: $default-spacing * 2;
                 margin-bottom: $default-spacing * 2;
@@ -45,7 +45,7 @@
                 transition: all 0.1s;
 
                 &:hover {
-                    background-color: $color-primary;
+                    background-color: $color-primary-dark;
                     color: $color-background-light;
                 }
             }

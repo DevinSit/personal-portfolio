@@ -100,7 +100,7 @@ const SkillDescription = ({Description, images = []}) => (
         </p>
 
         <div className={style.skillImages}>
-            {images.map((image) => <img src={image} className={style.skillImage} />)}
+            {images.map((image) => <img src={image} className={style.skillImage} alt="skill logo" />)}
         </div>
     </div>
 );
