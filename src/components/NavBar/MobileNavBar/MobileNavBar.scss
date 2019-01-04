@@ -35,7 +35,7 @@ $menu-foreground-z-index: 99999;
 
         align-items: flex-end;
         bottom: $menu-fab-spacing * 6;
-        display: flex;
+        display: none;
         flex-direction: column;
         position: fixed;
         right: $menu-fab-spacing;
@@ -47,6 +47,7 @@ $menu-foreground-z-index: 99999;
         }
 
         &.navbar-nav--visible {
+            display: flex;
             opacity: 1;
         }
         
