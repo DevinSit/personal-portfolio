@@ -18,7 +18,7 @@ export default class Skills extends Component {
         return (
             <div id={style.skills}>
                 <Header />
-                <ContentHeader />
+                <ContentHeader skill={selectedSkill} />
 
                 <div className={style.skillsContent}>
                     <SkillSelector
@@ -49,7 +49,7 @@ const Header = () => (
     </div>
 );
 
-const ContentHeader = () => (
+const ContentHeader = ({skill}) => (
     <div className={classNames(style.header, style.contentHeader)}>
         <div className={classNames(style.headerLeft, style.contentHeaderLeft)}>
             <p className={style.skillSelectorDescription}>
@@ -59,7 +59,7 @@ const ContentHeader = () => (
         </div>
 
         <div className={classNames(style.headerRight, style.contentHeaderRight)}>
-            <h2 className={style.skillDescriptionHeader}>FRONTEND</h2>
+            <h2 className={style.skillDescriptionHeader}>{skill}</h2>
         </div>
     </div>
 );

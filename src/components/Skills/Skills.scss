@@ -61,7 +61,7 @@ $mobile-content-side-padding: $default-spacing;
 }
 
 .contentHeader {
-    height: $default-spacing * 8;
+    height: $default-spacing * 7.5;
 
     .contentHeaderLeft {
         @include skills-side-padding();
@@ -77,6 +77,11 @@ $mobile-content-side-padding: $default-spacing;
             }
 
             @include breakpoint-navbar {
+                &:first-child {
+                    /* Since the line-height shrinks with decreased font size, the correction needs to be smaller. */
+                    margin-top: $paragraph-line-height-correction / 2;
+                }
+
                 &:last-child {
                     margin-top: $default-spacing;
                 }
@@ -118,7 +123,7 @@ $mobile-content-side-padding: $default-spacing;
         align-items: flex-end;
         display: flex;
         flex-direction: column;
-        margin-bottom: $default-spacing * 8;
+        margin-bottom: $default-spacing * 10;
 
         @include breakpoint-mobile-width {
             /* Ensure spacing between the headers and the content. */
@@ -179,6 +184,12 @@ $skill-description-max-width: 450px;
         @include breakpoint-mobile-width {
             /* Ensure spacing between the headers and the content. */
             padding-top: $default-spacing * 2;
+        }
+
+        a {
+            color: $color-primary;
+            font-weight: bold;
+            text-decoration: underline;
         }
     }
 
