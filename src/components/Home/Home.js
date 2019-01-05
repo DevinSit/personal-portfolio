@@ -1,7 +1,7 @@
 import {Component} from "preact";
-import {scrollTo} from "utils/helpers";
+import {IconNextSection} from "assets/icons";
 import {Logo} from "components/common";
-import NextSection from "assets/NextSection.svg";
+import {scrollTo} from "utils/helpers";
 import "./Home.scss";
 
 const TagLineCircle = () => (
@@ -28,7 +28,7 @@ export default class Home extends Component {
                     className="home-next-section-nav-container"
                     onClick={this.onNextSectionClick}
                 >
-                    <img src={NextSection} className="home-next-section-nav" alt="next section" />
+                    <img src={IconNextSection} className="home-next-section-nav" alt="next section" />
                 </a>
 			</div>
 		);

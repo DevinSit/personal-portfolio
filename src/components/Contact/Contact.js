@@ -1,5 +1,5 @@
 import {Component} from "preact";
-import {IconEmail, IconLinkedIn} from "images/";
+import {IconEmail, IconLinkedin} from "assets/icons";
 import {SectionHeader} from "components/common";
 import "./Contact.scss";
 
@@ -23,7 +23,7 @@ export default class Contact extends Component {
                             </div>
 
                             <div className="contact-info">
-                                <img src={IconLinkedIn} alt="linkedin" />
+                                <img src={IconLinkedin} alt="linkedin" />
                                 <p>linkedin.com/in/devin-sit</p>
                             </div>
                         </div>

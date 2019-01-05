@@ -1,4 +1,4 @@
-import SkillImages from "assets/skillImages";
+import SkillImages from "assets/skillLogos";
 
 const FrontendDescription = () => (
     <span>
@@ -55,26 +55,26 @@ export const SKILLS = [
 export const SKILL_DESCRIPTIONS = {
     FRONTEND: {
         description: FrontendDescription,
-        images: [SkillImages.ReactLogo, SkillImages.ReduxLogo, SkillImages.SassLogo]
+        images: [SkillImages.LogoReact, SkillImages.LogoRedux, SkillImages.LogoSass]
     },
     BACKEND: {
         description: BackendDescription,
-        images: [SkillImages.NodeLogo, SkillImages.PythonLogo, SkillImages.RubyLogo]
+        images: [SkillImages.LogoNode, SkillImages.LogoPython, SkillImages.LogoRuby]
     },
     MOBILE: {
         description: MobileDescription,
-        images: [SkillImages.AndroidLogo, SkillImages.ReactLogo]
+        images: [SkillImages.LogoAndroid, SkillImages.LogoReact]
     },
     DESIGN: {
         description: DesignDescription,
-        images: [SkillImages.FigmaLogo]
+        images: [SkillImages.LogoFigma]
     },
     DEVOPS: {
         description: DevopsDescription,
-        images: [SkillImages.DockerLogo, SkillImages.KubernetesLogo, SkillImages.GoogleCloudLogo]
+        images: [SkillImages.LogoDocker, SkillImages.LogoKubernetes, SkillImages.LogoGoogleCloud]
     },
     DATA: {
         description: DataDescription,
-        images: [SkillImages.KerasLogo, SkillImages.ScikitLearnLogo]
+        images: [SkillImages.LogoKeras, SkillImages.LogoScikitLearn]
     }
 };

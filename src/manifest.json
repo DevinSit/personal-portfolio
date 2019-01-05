@@ -8,8 +8,7 @@
   "theme_color": "#008C8C",
   "icons": [
     {
-      "src": "/assets/icon.png",
-      "type": "image/png",
+      "src": "/assets/pwa-logo.png",
       "sizes": "512x512"
     }
   ]
