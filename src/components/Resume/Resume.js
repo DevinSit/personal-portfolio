@@ -16,7 +16,7 @@ export default class Resume extends Component {
 
                         <a
                             className="resume-download"
-                            href="/DevinSit_Resume.pdf"
+                            href="/assets/DevinSit_Resume.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
