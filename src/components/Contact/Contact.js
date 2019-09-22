@@ -19,12 +19,17 @@ export default class Contact extends Component {
                         <div className="contact-info-container">
                             <div className="contact-info">
                                 <img src={IconEmail} alt="email" />
-                                <p>devin@devinsit.com</p>
+                                <p className="contact-info-text">devin@devinsit.com</p>
                             </div>
 
                             <div className="contact-info">
                                 <img src={IconLinkedin} alt="linkedin" />
-                                <p>linkedin.com/in/devin-sit</p>
+                                <a 
+                                    className="contact-info-text"
+                                    href="https://www.linkedin.com/in/devin-sit/"
+                                >
+                                    linkedin.com/in/devin-sit
+                                </a>
                             </div>
                         </div>
                     </div>

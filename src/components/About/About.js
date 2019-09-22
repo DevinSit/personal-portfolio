@@ -11,7 +11,7 @@ export default class About extends Component {
 
                     <div className={style.body}>
                         <p className={style.paragraph}>
-                            <span className={style.bold}>Just who is this Devin Sit guy anyways?</span> Well, one could say that I’m a <span className={style.bold}>student</span> at the University of Ottawa studying Software Engineering. One could also say that I’m a <span className={style.bold}>fast learner</span> and a <span className={style.bold}>pragmatist</span> — someone who can quickly pick up new technologies and apply them effectively in a logical and methodical manner.
+                            <span className={style.bold}>Just who is this Devin Sit guy anyways?</span> Well, one could say that I’m a <span className={style.bold}>final-semester student</span> at the University of Ottawa studying Software Engineering. One could also say that I’m a <span className={style.bold}>fast learner</span> and a <span className={style.bold}>pragmatist</span> — someone who can quickly pick up new technologies and apply them effectively in a logical and methodical manner.
                         </p>
 
                         <p className={style.paragraph}>
