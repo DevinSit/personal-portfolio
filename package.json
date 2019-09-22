@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "classnames": "^2.2.6",
+        "js-yaml": "^3.13.1",
         "preact": "^8.2.1",
         "preact-compat": "^3.17.0",
         "react-ga": "^2.5.6"
