@@ -3,7 +3,7 @@
 @import "style/_media_queries.scss";
 @import "style/_mixins.scss";
 
-.sectionHeader {
+.section-header {
     @include section-header();
 
     color: $color-background;

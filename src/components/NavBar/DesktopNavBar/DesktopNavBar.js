@@ -51,6 +51,12 @@ export default class DesktopNavBar extends Component {
 
                     <a
                         className="navbar-nav-item"
+                    >
+                        PROJECTS
+                    </a>
+
+                    <a
+                        className="navbar-nav-item"
                         onClick={this.onNavClick("resume")}
                     >
                         RESUME

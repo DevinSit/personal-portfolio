@@ -1,4 +1,4 @@
-import {About, Contact, Footer, Home, NavBar, Resume, Skills} from "components/";
+import {About, Contact, Footer, Home, NavBar, Projects, Resume, Skills} from "components/";
 import {initAnalytics} from "utils/userAnalytics";
 import "./App.scss";
 
@@ -12,6 +12,7 @@ const App = () => (
             <Home />
             <About />
             <Skills />
+            <Projects />
             <Resume />
             <Contact />
             <Footer />

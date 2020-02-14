@@ -3,6 +3,7 @@ import Contact from "./Contact";
 import Footer from "./Footer";
 import Home from "./Home";
 import NavBar from "./NavBar";
+import Projects from "./Projects";
 import Resume from "./Resume";
 import Skills from "./Skills";
 
@@ -12,6 +13,7 @@ export {
     Footer,
     Home,
     NavBar,
+    Projects,
     Resume,
     Skills
 };

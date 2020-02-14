@@ -44,6 +44,13 @@ export default class MobileNavBar extends Component {
 
                     <a
                         className="navbar-nav-item"
+                        onClick={this.onNavClick("skills")}
+                    >
+                        PROJECTS
+                    </a>
+
+                    <a
+                        className="navbar-nav-item"
                         onClick={this.onNavClick("resume")}
                     >
                         RESUME
@@ -57,7 +64,7 @@ export default class MobileNavBar extends Component {
                     </a>
                 </nav>
 
-                <div 
+                <div
                     className={
                         classNames("menu-background", {"menu-background--expand": menuOpen}
                     )}

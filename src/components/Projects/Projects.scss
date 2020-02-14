@@ -1,0 +1,101 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_media_queries.scss";
+@import "style/_mixins.scss";
+
+#projects {
+    @include section-padding();
+
+    align-items: center;
+    background-color: $color-light;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .projects-content {
+        height: 100%;
+        max-width: $section-width * 1.5;
+
+        .section-header {
+            color: $color-background;
+        }
+
+        .projects-body {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .projects-paragraph {
+                @include large-paragraph();
+            }
+            
+            .projects-cards {
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: $default-spacing;
+            }
+        }
+    }
+}
+
+.project-card {
+    /* This was an experimentally derived good-looking value. */
+    perspective: 800px;
+
+    /* Need the inner container so that the perspective can be used on the parent project-card
+     * to be applied on the inner container.
+     *
+     * If we instead applied the perspective to the .projects-cards container in .projects-body,
+     * then the perspective-origin would be the center of all the project cards, leaving the 
+     * animation looking a little whonky, with edge cards having more pronounced flips. */
+    .project-card-inner {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        margin: $default-spacing;
+        position: relative;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+        height: 300px;
+        width: 350px;
+
+        &.project-card--flipped {
+            transform: rotateY(180deg);
+        }
+
+        .project-card-front, .project-card-back {
+            backface-visibility: hidden;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+        }
+
+        .project-card-front {
+            .project-card-image {
+                background-color: green;
+                height: 180px;
+            }
+
+            .project-card-info {
+                background-color: $color-light;
+                padding: $default-spacing;
+
+                .project-card-title {
+                    color: $color-primary;
+                    font-size: $large-text-size;
+                    margin-bottom: $default-spacing;
+                }
+
+                .project-card-description {
+                    color: $color-background;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+            }
+        }
+
+        .project-card-back {
+            background-color: red;
+            transform: rotateY(180deg);
+        }
+    }
+}
