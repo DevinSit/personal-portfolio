@@ -44,7 +44,7 @@ export default class MobileNavBar extends Component {
 
                     <a
                         className="navbar-nav-item"
-                        onClick={this.onNavClick("skills")}
+                        onClick={this.onNavClick("projects")}
                     >
                         PROJECTS
                     </a>
