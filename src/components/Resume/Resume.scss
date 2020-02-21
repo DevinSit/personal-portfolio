@@ -29,6 +29,14 @@
                 margin-bottom: $default-spacing;
                 text-align: center;
 
+                .resume-paragraph-break {
+                    display: none;
+
+                    @include breakpoint-navbar {
+                        display: block;
+                    }
+                }
+
                 @include breakpoint-navbar {
                     margin-bottom: $default-spacing / 2;
                 }
