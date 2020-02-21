@@ -1,6 +1,7 @@
 import {useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
 import {IconExternalLink, IconGithub} from "assets/icons";
+import {DankMemeClassifierImage, KubailsImage, TransitrImage} from "assets/projectImages";
 import {SectionHeader} from "components/common";
 import "./Projects.scss";
 
@@ -11,23 +12,26 @@ const PROJECTS_INFO = [
         reason: "Because I got tired of manually texting the bus service.",
         techStack: ["TypeScript", "React Native", "Redux + Redux Saga"],
         githubLink: "https://github.com/DevinSit/transitr",
-        externalLink: "https://github.com/DevinSit/transitr/releases"
+        externalLink: "https://github.com/DevinSit/transitr/releases",
+        image: TransitrImage
     },
     {
-        title: "Transitr",
-        description: "Mobile app for finding OC Transpo bus arrival times using SMS instead of data.",
-        reason: "Because I got tired of manually texting the bus service.",
-        techStack: ["TypeScript", "React Native", "Redux + Redux Saga"],
-        githubLink: "https://github.com/DevinSit/transitr",
-        externalLink: "https://github.com/DevinSit/transitr/releases"
+        title: "Kubails",
+        description: "Opinionated framework for organizing and developing containerized services.",
+        reason: "Because I wanted a better way for developing web apps.",
+        techStack: ["Python", "Docker + Kubernetes", "Google Cloud Platform"],
+        githubLink: "https://github.com/DevinSit/kubails",
+        externalLink: null,
+        image: KubailsImage
     },
     {
-        title: "Transitr",
-        description: "Mobile app for finding OC Transpo bus arrival times using SMS instead of data.",
-        reason: "Because I got tired of manually texting the bus service.",
-        techStack: ["TypeScript", "React Native", "Redux + Redux Saga"],
-        githubLink: "https://github.com/DevinSit/transitr",
-        externalLink: "https://github.com/DevinSit/transitr/releases"
+        title: "Dank Meme Classifier",
+        description: "Web app for classifying memes as dank or not dank.",
+        reason: "Because I wanted an ML project that was just a little out there.",
+        techStack: ["JavaScript + React", "Python + Keras", "Google Cloud Platform"],
+        githubLink: "https://github.com/DevinSit/dank-meme-classifier",
+        externalLink: "https://dankmemeclassifier.com",
+        image: DankMemeClassifierImage
     }
 ];
 
@@ -79,9 +83,10 @@ const ProjectCard = ({
     reason = "",
     techStack = [],
     githubLink = "",
-    externalLink = ""
+    externalLink = "",
+    image = ""
 }) => {
-    const [isFlipped, setFlipped] = useState(true);
+    const [isFlipped, setFlipped] = useState(false);
 
     const techStackList = useMemo(() => techStack.map((item) => (
         <TechStackListItem
@@ -94,7 +99,9 @@ const ProjectCard = ({
         <div className="project-card" onClick={() => setFlipped(!isFlipped)}>
             <div className={classNames("project-card-inner", {"project-card--flipped": isFlipped})}>
                 <div className="project-card-front">
-                    <div className="project-card-image"></div>
+                    <div className="project-card-image-container">
+                        <img className="project-card-image" src={image} />
+                    </div>
 
                     <div className="project-card-info">
                         <h3 className="project-card-title">{title}</h3>
@@ -120,19 +127,27 @@ const ProjectCard = ({
                     </div>
 
                     <div className="project-card-back-navigation">
-                        <FloatingActionLink
-                            className="project-card-navigation-button"
-                            icon={IconGithub}
-                            iconAlt="github"
-                            link={githubLink}
-                        />
+                        {
+                            githubLink && (
+                                <FloatingActionLink
+                                    className="project-card-navigation-button"
+                                    icon={IconGithub}
+                                    iconAlt="github"
+                                    link={githubLink}
+                                />
+                            )
+                        }
 
-                        <FloatingActionLink
-                            className="project-card-navigation-button"
-                            icon={IconExternalLink}
-                            iconAlt="external link"
-                            link={externalLink}
-                        />
+                        {
+                            externalLink && (
+                                <FloatingActionLink
+                                    className="project-card-navigation-button"
+                                    icon={IconExternalLink}
+                                    iconAlt="external link"
+                                    link={externalLink}
+                                />
+                            )
+                        }
                     </div>
                 </div>
             </div>
