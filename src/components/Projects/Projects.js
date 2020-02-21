@@ -1,6 +1,6 @@
-import {useMemo, useState} from "preact/hooks";
+import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
-import {IconExternalLink, IconGithub} from "assets/icons";
+import {IconBack, IconExternalLink, IconFlip, IconGithub} from "assets/icons";
 import {DankMemeClassifierImage, KubailsImage, TransitrImage} from "assets/projectImages";
 import {SectionHeader} from "components/common";
 import "./Projects.scss";
@@ -59,16 +59,25 @@ const Projects = () => {
     );
 };
 
-const FloatingActionLink = ({className, icon, iconAlt = "", link = ""}) => (
-    <a
-        className={classNames(className, "floating-action-link")}
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => e.stopPropagation()}
-    >
-        <img src={icon} alt={iconAlt} />
-    </a>
+const FloatingAction = ({className, icon, iconAlt = "", link = "", onClick}) => (
+    link ? (
+        <a
+            className={classNames(className, "floating-action")}
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+        >
+            <img src={icon} alt={iconAlt} />
+        </a>
+    ) : (
+        <button
+            className={classNames(className, "floating-action")}
+            onClick={onClick}
+        >
+            <img src={icon} alt={iconAlt} />
+        </button>
+    )
 );
 
 const TechStackListItem = ({item}) => (
@@ -95,16 +104,25 @@ const ProjectCard = ({
         />
     )), [techStack]);
 
+    const onFlip = useCallback(() => setFlipped(!isFlipped), [isFlipped, setFlipped]);
+
     return (
-        <div className="project-card" onClick={() => setFlipped(!isFlipped)}>
+        <div className="project-card">
             <div className={classNames("project-card-inner", {"project-card--flipped": isFlipped})}>
                 <div className="project-card-front">
                     <div className="project-card-image-container">
                         <img className="project-card-image" src={image} />
                     </div>
 
+                    <FloatingAction
+                        className="project-card-flip-button"
+                        icon={IconFlip}
+                        iconAlt="flip"
+                        onClick={onFlip}
+                    />
+
                     <div className="project-card-info">
-                        <h3 className="project-card-title">{title}</h3>
+                        <h3 className="project-card-title" onClick={onFlip}>{title}</h3>
                         <p className="project-card-description">{description}</p>
                     </div>
                 </div>
@@ -127,27 +145,37 @@ const ProjectCard = ({
                     </div>
 
                     <div className="project-card-back-navigation">
-                        {
-                            githubLink && (
-                                <FloatingActionLink
-                                    className="project-card-navigation-button"
-                                    icon={IconGithub}
-                                    iconAlt="github"
-                                    link={githubLink}
-                                />
-                            )
-                        }
+                        <button className="project-card-back-flip-button">
+                            <img
+                                src={IconBack}
+                                alt="flip"
+                                onClick={onFlip}
+                            />
+                        </button>
 
-                        {
-                            externalLink && (
-                                <FloatingActionLink
-                                    className="project-card-navigation-button"
-                                    icon={IconExternalLink}
-                                    iconAlt="external link"
-                                    link={externalLink}
-                                />
-                            )
-                        }
+                        <div className="project-card-external-navigation">
+                            {
+                                githubLink && (
+                                    <FloatingAction
+                                        className="project-card-navigation-button"
+                                        icon={IconGithub}
+                                        iconAlt="github"
+                                        link={githubLink}
+                                    />
+                                )
+                            }
+
+                            {
+                                externalLink && (
+                                    <FloatingAction
+                                        className="project-card-navigation-button"
+                                        icon={IconExternalLink}
+                                        iconAlt="external link"
+                                        link={externalLink}
+                                    />
+                                )
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

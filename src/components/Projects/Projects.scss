@@ -15,6 +15,7 @@
     .projects-content {
         height: 100%;
         max-width: $section-width * 1.5;
+        width: 100%;
 
         .section-header {
             color: $color-background;
@@ -28,6 +29,7 @@
 
             .projects-paragraph {
                 @include large-paragraph();
+                text-align: center;
             }
 
             .projects-cards {
@@ -35,12 +37,16 @@
                 flex-wrap: wrap;
                 justify-content: center;
                 margin-top: $default-spacing;
+                width: 100%;
             }
         }
     }
 }
 
-.floating-action-link {
+$floating-action-padding: $default-spacing;
+$floating-action-icon-height: 24px;
+
+.floating-action {
     background-color: $color-primary;
     border: none;
     border-radius: 100px;
@@ -48,7 +54,7 @@
     cursor: pointer;
     line-height: 0;
     outline: none;
-    padding: $default-spacing;
+    padding: $floating-action-padding;
     transition: all 0.2s;
 
     &:hover {
@@ -59,11 +65,20 @@
     &:focus {
         background-color: darken($color-primary, 5%);
     }
+
+    img {
+        height: $floating-action-icon-height;
+    }
 }
+
+$project-card-image-height: 215px;
 
 .project-card {
     /* This was an experimentally derived good-looking value. */
     perspective: 800px;
+    margin: $default-spacing;
+    max-width: 350px;
+    width: 100%;
 
     /* Need the inner container so that the perspective property can be used on the parent
      * project-card and then applied on the inner container.
@@ -74,11 +89,9 @@
     .project-card-inner {
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
         height: 350px;
-        margin: $default-spacing;
         position: relative;
         transition: transform 0.5s;
         transform-style: preserve-3d;
-        width: 350px;
 
         &.project-card--flipped {
             transform: rotateY(-180deg);
@@ -91,14 +104,32 @@
             height: 100%;
             position: absolute;
             width: 100%;
+
+            /* Hack to get 'backface-visibility: hidden' to work properly for both the front and back
+             * sides of the card for all browsers on both desktop and mobile.
+             *
+             * On Chrome, without this, the .project-card-flip-button is shown on the back side.
+             *
+             * On Firefox, the front side sometimes just doesn't render, and the front's backside is
+             * shown when flipped to the back.
+             *
+             * For reference: https://stackoverflow.com/a/32421734.
+             */
+            transform: rotateX(0deg);
         }
 
         .project-card-front {
             .project-card-image-container {
                 display: flex;
                 flex-direction: column;
-                height: 215px;
+                height: $project-card-image-height;
                 overflow: hidden;
+            }
+
+            .project-card-flip-button {
+                position: absolute;
+                right: $default-spacing;
+                top: $project-card-image-height - $floating-action-padding - $floating-action-icon-height/2;
             }
 
             .project-card-info {
@@ -107,14 +138,23 @@
 
                 .project-card-title {
                     color: $color-primary;
+                    cursor: pointer;
                     font-size: $large-text-size;
                     margin-bottom: $default-spacing;
+
+                    @include breakpoint-navbar {
+                        font-size: $mobile-large-text-size;
+                    }
                 }
 
                 .project-card-description {
                     color: $color-background;
                     font-size: 12pt;
                     line-height: 1.4;
+
+                    @include breakpoint-navbar {
+                        font-size: $mobile-normal-text-size;
+                    }
                 }
             }
         }
@@ -131,6 +171,10 @@
                 .project-card-back-header {
                     color: $color-primary;
                     margin-bottom: $default-spacing;
+
+                    @include breakpoint-navbar {
+                        font-size: $mobile-large-text-size;
+                    }
                 }
 
                 .project-card-back-list {
@@ -145,6 +189,10 @@
 
                     li {
                         line-height: 1.8;
+
+                        @include breakpoint-navbar {
+                            font-size: $mobile-normal-text-size;
+                        }
                     }
                 }
             }
@@ -153,13 +201,35 @@
                 border-top: 1px solid #E3E3E3;
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
+                justify-content: space-between;
                 margin: -($default-spacing * 1.5);
                 margin-top: auto;
                 padding: $default-spacing/2 $default-spacing;
 
-                .project-card-navigation-button {
-                    margin: 0 $default-spacing/2;
+                @include breakpoint-navbar {
+                    padding-right: $default-spacing/2;
+                }
+
+                .project-card-back-flip-button {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    margin: -($default-spacing);
+                    outline: none;
+                    padding: $default-spacing;
+
+                    img {
+                        height: 30px;
+                    }
+                }
+
+                .project-card-external-navigation {
+                    display: flex;
+                    align-items: center;
+
+                    .project-card-navigation-button {
+                        margin: 0 $default-spacing/2;
+                    }
                 }
             }
         }
