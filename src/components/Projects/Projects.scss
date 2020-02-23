@@ -129,6 +129,14 @@ $project-card-image-height: 215px;
             .project-card-flip-button {
                 position: absolute;
                 right: $default-spacing;
+
+                /* Note: Since this is absolutely positioned, it won't be perfectly responsive on
+                 * mobile (i.e. the button won't necessarily be perfectly centered between the
+                 * two sections) due to the potential for the height of the card to change as the
+                 * page gets more squished horizontally.
+                 *
+                 * However, it looks good enough that it's hard to notice, so I'm fine with it.
+                 */
                 top: $project-card-image-height - $floating-action-padding - $floating-action-icon-height/2;
             }
 
