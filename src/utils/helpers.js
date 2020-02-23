@@ -25,7 +25,7 @@ export function debounceWithLeading(func, wait) {
 
 export const scrollTo = (id) => {
 	const element = document.getElementById(id);
-	const headerOffset = 80;  // The $header-height variable in styles/_dimens.scss
+	const headerOffset = 80;  // The $header-height variable in style/_dimens.scss
 	const bodyRect = document.body.getBoundingClientRect().top;
 	const elementPosition = element.getBoundingClientRect().top - bodyRect;
 	const offsetPosition = elementPosition - headerOffset;

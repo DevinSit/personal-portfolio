@@ -1,4 +1,3 @@
-import {Component} from "preact";
 import {SectionHeader} from "components/common";
 import "./About.scss";
 

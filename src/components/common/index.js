@@ -1,7 +1,2 @@
-import Logo from "./Logo";
-import SectionHeader from "./SectionHeader";
-
-export {
-    Logo,
-    SectionHeader
-};
+export {default as Logo} from "./Logo";
+export {default as SectionHeader} from "./SectionHeader";
