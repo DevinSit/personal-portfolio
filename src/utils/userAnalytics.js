@@ -4,8 +4,6 @@ import {isProduction, GOOGLE_ANALYTICS_TRACKING_CODE} from "src/config";
 
 export const initAnalytics = () => {
     if (isProduction()) {
-        console.log("HERE");
-
         const analytics = Analytics({
             app: "devin-sit-portfolio",
             version: 1,
