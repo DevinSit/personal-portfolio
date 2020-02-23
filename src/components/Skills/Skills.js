@@ -1,41 +1,7 @@
-import {Component} from "preact";
+import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
-import {SKILLS, SKILL_DESCRIPTIONS} from "./SkillsContent";
+import {SKILLS, SKILL_DESCRIPTIONS} from "./skillsContent";
 import style from "./Skills.scss";
-
-export default class Skills extends Component {
-    state = {
-        selectedSkill: SKILLS[0]
-    }
-
-    onSkillSelected = (skill) => () => this.setState({selectedSkill: skill});
-
-    render() {
-        const {selectedSkill} = this.state;
-
-        const selectedSkillDescription = SKILL_DESCRIPTIONS[selectedSkill];
-
-        return (
-            <div id={style.skills}>
-                <Header />
-                <ContentHeader skill={selectedSkill} />
-
-                <div className={style.skillsContent}>
-                    <SkillSelector
-                        skills={SKILLS}
-                        selectedSkill={selectedSkill}
-                        onSkillSelected={this.onSkillSelected}
-                    />
-
-                    <SkillDescription
-                        Description={selectedSkillDescription.description}
-                        images={selectedSkillDescription.images}
-                    />
-                </div>
-            </div>
-        );
-    }
-}
 
 const Header = () => (
     <div className={style.header}>
@@ -64,21 +30,24 @@ const ContentHeader = ({skill}) => (
     </div>
 );
 
-const SkillSelector = ({skills, selectedSkill, onSkillSelected}) => (
-    <div className={style.skillSelectorContainer}>
-        <div className={style.skillSelector}>
-            {
-                skills.map((skill, index) => (
-                    <SkillSelectorItem
-                        text={skill}
-                        selected={skill === selectedSkill}
-                        onClick={onSkillSelected(skill)}
-                    />
-                ))
-            }
+const SkillSelector = ({skills, selectedSkill, onSkillSelected}) => {
+    const skillSelectors = useMemo(() => skills.map((skill) => (
+        <SkillSelectorItem
+            key={skill}
+            text={skill}
+            selected={skill === selectedSkill}
+            onClick={onSkillSelected(skill)}
+        />
+    )), [skills]);
+
+    return (
+        <div className={style.skillSelectorContainer}>
+            <div className={style.skillSelector}>
+                {skillSelectors}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 const SkillSelectorItem = ({text = "", selected = false, onClick}) => (
     <a
@@ -93,14 +62,49 @@ const SkillSelectorItem = ({text = "", selected = false, onClick}) => (
     </a>
 );
 
-const SkillDescription = ({Description, images = []}) => (
-    <div className={style.skillDescriptionContainer}>
-        <p className={style.skillDescription}>
-            {Description && <Description />}
-        </p>
+const SkillDescription = ({Description, images = []}) => {
+    const skillLogos = useMemo(() => images.map((image) => (
+        <img src={image} className={style.skillImage} alt="skill logo" />
+    )), [images]);
 
-        <div className={style.skillImages}>
-            {images.map((image) => <img src={image} className={style.skillImage} alt="skill logo" />)}
+    return (
+        <div className={style.skillDescriptionContainer}>
+            <p className={style.skillDescription}>
+                <Description />
+            </p>
+
+            <div className={style.skillImages}>
+                {skillLogos}
+            </div>
         </div>
-    </div>
-);
+    );
+};
+
+const Skills = () => {
+    const [selectedSkill, setSelectedSkill] = useState(SKILLS[0]);
+    const onSkillSelected = useCallback((skill) => () => setSelectedSkill(skill));
+
+    const selectedSkillDescription = SKILL_DESCRIPTIONS[selectedSkill];
+
+    return (
+        <div id={style.skills}>
+            <Header />
+            <ContentHeader skill={selectedSkill} />
+
+            <div className={style.skillsContent}>
+                <SkillSelector
+                    skills={SKILLS}
+                    selectedSkill={selectedSkill}
+                    onSkillSelected={onSkillSelected}
+                />
+
+                <SkillDescription
+                    Description={selectedSkillDescription.description}
+                    images={selectedSkillDescription.images}
+                />
+            </div>
+        </div>
+    );
+};
+
+export default Skills;

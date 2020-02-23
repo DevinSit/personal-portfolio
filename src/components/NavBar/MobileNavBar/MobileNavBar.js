@@ -15,7 +15,9 @@ const MobileNavBar = () => {
     }, [setMenuOpen]);
 
     const navItems = useMemo(() => NAVBAR_ITEMS.map((navItem) => (
-        <a className="navbar-nav-item" onClick={onNavClick(navItem)}>{navItem}</a>
+        <a key={navItem} className="navbar-nav-item" onClick={onNavClick(navItem)}>
+            {navItem}
+        </a>
     )), [onNavClick]);
 
     return (

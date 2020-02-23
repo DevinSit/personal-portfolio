@@ -11,7 +11,7 @@ const FrontendDescription = () => (
 const BackendDescription = () => (
     <span>
         A great frontend is only as useful as its backend, so it's quite handy that I can work on both halves. As any strong JavaScript developer, I can comfortably throw together APIs using <strong>Node</strong> and <strong>Express</strong>, but I've also worked extensively with <strong>Python</strong> and <strong>Flask</strong> to build machine learning based services. <br /> <br />
-        
+
         Additionally, I've dabbled in the <strong>Ruby on Rails</strong> world and come to love that batteries-included experience. And with <strong>Postgres</strong> as my go-to database, I can whip together some very robust APIs to back just about any interface.
     </span>
 );
@@ -43,14 +43,12 @@ const DevopsDescription = () => (
 const DataDescription = () => (
     <span>
         A duo of buzzwords to eclipse even DevOps, the fields of <strong>data science</strong> and <strong>machine learning</strong> are certainly en vogue. My experience here comes more so from building <strong>APIs</strong>, <strong>apps</strong>, and <strong>tooling</strong> around machine learning models, and less so from actually building the models themselves. <br /><br />
-        
+
         However, that doesn't mean that I don't have a strong understanding of the <strong>data science process</strong>, and a rudimentary ability to build models with frameworks like <strong>Keras</strong> or <strong>Scikit-Learn</strong>.
     </span>
 );
 
-export const SKILLS = [
-    "FRONTEND", "BACKEND", "MOBILE", "DESIGN", "DEVOPS", "DATA"
-];
+export const SKILLS = ["FRONTEND", "BACKEND", "MOBILE", "DESIGN", "DEVOPS", "DATA"];
 
 export const SKILL_DESCRIPTIONS = {
     FRONTEND: {
