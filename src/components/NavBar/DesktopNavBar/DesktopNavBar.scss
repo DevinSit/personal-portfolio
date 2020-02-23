@@ -33,6 +33,7 @@
             font-size: $normal-text-size;
             letter-spacing: $header-letter-spacing;
             margin: 0 $default-spacing * 1.5;
+            text-transform: uppercase;
 
             &:last-child {
                 margin-right: 0;
