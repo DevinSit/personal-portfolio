@@ -60,10 +60,10 @@ $circle-diameter: 70vmin;
             font-size: 3.5vmin;
             font-style: italic;
             letter-spacing: 2px;
-            margin-bottom: $default-spacing * 2;
+            margin-top: $default-spacing * 2;
 
             @include breakpoint-navbar {
-                margin-bottom: $default-spacing * 1.5;
+                margin-top: $default-spacing;
             }
         }
 
@@ -77,6 +77,7 @@ $circle-diameter: 70vmin;
 
             @include breakpoint-navbar {
                 font-size: 5.5vmin;
+                letter-spacing: 4px;
             }
         }
     }

@@ -6,9 +6,9 @@ import "./Home.scss";
 const TagLineCircle = () => (
     <div className="tag-line-container">
         <div className="tag-line-circle">
-            <h3 className="sub-tag-line">One of a kind</h3>
-            <h1 className="tag-line">Full Spectrum</h1>
-            <h1 className="tag-line">Developer</h1>
+            <h3 className="tag-line">I solve lots</h3>
+            <h3 className="tag-line">of problems</h3>
+            <h1 className="sub-tag-line">Full Spectrum Developer</h1>
         </div>
     </div>
 );
