@@ -1,38 +1,51 @@
 import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
 import {SKILLS, SKILL_DESCRIPTIONS} from "./skillsContent";
-import style from "./Skills.scss";
+import "./Skills.scss";
 
 const Header = () => (
-    <div className={style.header}>
-        <div className={style.headerLeft}>
-            <h1 className={style.headerText}>SKI</h1>
+    <div className="skills-header">
+        <div className="skills-header-left">
+            <h1 className="skills-header-text">SKI</h1>
         </div>
 
-        <div className={style.headerRight}>
-            <h1 className={style.headerText}>LLS</h1>
+        <div className="skills-header-right">
+            <h1 className="skills-header-text">LLS</h1>
         </div>
     </div>
 );
 
 const ContentHeader = ({skill}) => (
-    <div className={classNames(style.header, style.contentHeader)}>
-        <div className={classNames(style.headerLeft, style.contentHeaderLeft)}>
-            <p className={style.skillSelectorDescription}>
-                So what exactly can a <span>Full Spectrum Developer</span> do?
+    <div className={classNames("skills-header", "skills-content-header")}>
+        <div className={classNames("skills-header-left", "skills-content-header-left")}>
+            <p className="skills-selector-description">
+                So what exactly can a <span className="skills-full-spectrum-highlight">Full Spectrum Developer</span> do?
             </p>
-            <p className={style.skillSelectorDescription}>Let's take a look.</p>
+            <p className="skills-selector-description">Let's take a look.</p>
         </div>
 
-        <div className={classNames(style.headerRight, style.contentHeaderRight)}>
-            <h2 className={style.skillDescriptionHeader}>{skill}</h2>
+        <div className={classNames("skills-header-right", "skills-content-header-right")}>
+            <h2 className="skills-description-header">{skill}</h2>
         </div>
     </div>
 );
 
-const SkillSelector = ({skills, selectedSkill, onSkillSelected}) => {
+const SkillsSelectorItem = ({text = "", selected = false, onClick}) => (
+    <a
+        className={classNames(
+            "skills-selector-item",
+            {"skills-selector-item--selected": selected}
+        )}
+        onClick={onClick}
+    >
+        <span>{text}</span>
+        {selected && <div className="skills-selector-item-circle" />}
+    </a>
+);
+
+const SkillsSelector = ({skills, selectedSkill, onSkillSelected}) => {
     const skillSelectors = useMemo(() => skills.map((skill) => (
-        <SkillSelectorItem
+        <SkillsSelectorItem
             key={skill}
             text={skill}
             selected={skill === selectedSkill}
@@ -41,39 +54,26 @@ const SkillSelector = ({skills, selectedSkill, onSkillSelected}) => {
     )), [skills]);
 
     return (
-        <div className={style.skillSelectorContainer}>
-            <div className={style.skillSelector}>
+        <div className="skills-selector-container">
+            <div className="skills-selector">
                 {skillSelectors}
             </div>
         </div>
     );
 };
 
-const SkillSelectorItem = ({text = "", selected = false, onClick}) => (
-    <a
-        className={classNames(
-            style.skillSelectorItem,
-            {[style.selectedItem]: selected}
-        )}
-        onClick={onClick}
-    >
-        <span>{text}</span>
-        {selected && <div className={style.selectedCircle} />}
-    </a>
-);
-
 const SkillDescription = ({Description, images = []}) => {
     const skillLogos = useMemo(() => images.map((image) => (
-        <img src={image} className={style.skillImage} alt="skill logo" />
+        <img src={image} className="skills-image" alt="skill logo" />
     )), [images]);
 
     return (
-        <div className={style.skillDescriptionContainer}>
-            <p className={style.skillDescription}>
+        <div className="skills-description-container">
+            <p className="skills-description">
                 <Description />
             </p>
 
-            <div className={style.skillImages}>
+            <div className="skills-images">
                 {skillLogos}
             </div>
         </div>
@@ -87,12 +87,12 @@ const Skills = () => {
     const selectedSkillDescription = SKILL_DESCRIPTIONS[selectedSkill];
 
     return (
-        <div id={style.skills}>
+        <div id="skills">
             <Header />
             <ContentHeader skill={selectedSkill} />
 
-            <div className={style.skillsContent}>
-                <SkillSelector
+            <div className="skills-content">
+                <SkillsSelector
                     skills={SKILLS}
                     selectedSkill={selectedSkill}
                     onSkillSelected={onSkillSelected}
