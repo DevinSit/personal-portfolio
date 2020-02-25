@@ -87,7 +87,7 @@ const ProjectCard = ({
             <div className={classNames("project-card-inner", {"project-card--flipped": isFlipped})}>
                 <div className="project-card-front">
                     <div className="project-card-image-container">
-                        <img className="project-card-image" src={image} />
+                        <img className="project-card-image" src={image} alt={title} />
                     </div>
 
                     <FloatingAction

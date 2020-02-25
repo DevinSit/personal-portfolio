@@ -145,7 +145,7 @@ $project-card-image-height: 215px;
                 padding: $default-spacing * 1.5;
 
                 .project-card-title {
-                    color: $color-primary;
+                    color: $color-primary-dark;
                     cursor: pointer;
                     font-size: $large-text-size;
                     margin-bottom: $default-spacing;
@@ -177,7 +177,7 @@ $project-card-image-height: 215px;
                 margin-bottom: $default-spacing;
 
                 .project-card-back-header {
-                    color: $color-primary;
+                    color: $color-primary-dark;
                     margin-bottom: $default-spacing;
 
                     @include breakpoint-navbar {
