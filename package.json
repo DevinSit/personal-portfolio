@@ -5,7 +5,7 @@
     "license": "MIT",
     "scripts": {
         "start": "npm run -s dev",
-        "build": "preact build --template src/index.html --no-esm",
+        "build": "preact build --template src/index.html --no-esm --preload",
         "serve": "sirv build --cors --single",
         "dev": "preact watch --template src/index.html --port 3000",
         "lint": "eslint src"
