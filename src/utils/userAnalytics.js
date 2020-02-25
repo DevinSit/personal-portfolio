@@ -12,4 +12,4 @@ export const initAnalytics = () => {
 
         analytics.page({url: window.location.pathname + window.location.hash});
     }
-}
+};

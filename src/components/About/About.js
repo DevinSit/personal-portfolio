@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+
 import {SectionHeader} from "components/common";
 import "./About.scss";
 

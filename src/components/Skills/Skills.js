@@ -19,9 +19,9 @@ const ContentHeader = ({skill}) => (
     <div className={classNames("skills-header", "skills-content-header")}>
         <div className={classNames("skills-header-left", "skills-content-header-left")}>
             <p className="skills-selector-description">
-                So what exactly can a <span className="skills-full-spectrum-highlight">Full Spectrum Developer</span> do?
+                So what exactly can a <span className="skills-highlight">Full Spectrum Developer</span> do?
             </p>
-            <p className="skills-selector-description">Let's take a look.</p>
+            <p className="skills-selector-description">Let&apos;s take a look.</p>
         </div>
 
         <div className={classNames("skills-header-right", "skills-content-header-right")}>
@@ -51,7 +51,7 @@ const SkillsSelector = ({skills, selectedSkill, onSkillSelected}) => {
             selected={skill === selectedSkill}
             onClick={onSkillSelected(skill)}
         />
-    )), [skills]);
+    )), [skills, selectedSkill, onSkillSelected]);
 
     return (
         <div className="skills-selector-container">
@@ -63,8 +63,13 @@ const SkillsSelector = ({skills, selectedSkill, onSkillSelected}) => {
 };
 
 const SkillDescription = ({Description, images = []}) => {
-    const skillLogos = useMemo(() => images.map((image) => (
-        <img src={image} className="skills-image" alt="skill logo" />
+    const skillLogos = useMemo(() => images.map((image, index) => (
+        <img
+            key={index}
+            src={image}
+            className="skills-image"
+            alt="skill logo"
+        />
     )), [images]);
 
     return (
@@ -82,7 +87,7 @@ const SkillDescription = ({Description, images = []}) => {
 
 const Skills = () => {
     const [selectedSkill, setSelectedSkill] = useState(SKILLS[0]);
-    const onSkillSelected = useCallback((skill) => () => setSelectedSkill(skill));
+    const onSkillSelected = useCallback((skill) => () => setSelectedSkill(skill), [setSelectedSkill]);
 
     const selectedSkillDescription = SKILL_DESCRIPTIONS[selectedSkill];
 

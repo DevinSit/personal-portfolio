@@ -32,11 +32,7 @@ const MobileNavBar = () => {
                 {navItems}
             </nav>
 
-            <div
-                className={
-                    classNames("menu-background", {"menu-background--expand": isMenuOpen}
-                )}
-            />
+            <div className={classNames("menu-background", {"menu-background--expand": isMenuOpen})} />
 
             <button
                 className={classNames(

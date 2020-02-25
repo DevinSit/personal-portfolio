@@ -38,7 +38,7 @@ const PROJECTS_INFO = [
 const Projects = () => {
     const projectCards = useMemo(() => PROJECTS_INFO.map((project) => (
         <ProjectCard key={project.title} {...project} />
-    )));
+    )), []);
 
     return (
         <div id="projects">

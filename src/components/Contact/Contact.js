@@ -29,7 +29,7 @@ const Contact = () => (
             <div className="contact-body">
                 <p className="contact-paragraph">
                     <div>Like what you see?</div>
-                    <div>Let's chat.</div>
+                    <div>Let&apos;s chat.</div>
                 </p>
 
                 <ContactInfo />
