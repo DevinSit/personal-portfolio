@@ -12,13 +12,15 @@ const useTransitionOnScroll = () => {
     const [isScrolled, setScrolled] = useState(false);
 
     useEffect(() => {
-        const onScroll = debounceWithLeading(() => {
-            setScrolled(window.pageYOffset > 0);
-        }, 25);
+        if (typeof window !== "undefined") {
+            const onScroll = debounceWithLeading(() => {
+                setScrolled(window.pageYOffset > 0);
+            }, 25);
 
-        window.addEventListener("scroll", onScroll);
+            window.addEventListener("scroll", onScroll);
 
-        return () => window.removeEventListener("scroll", onScroll);
+            return () => window.removeEventListener("scroll", onScroll);
+        }
     }, [setScrolled]);
 
     return isScrolled;

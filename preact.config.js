@@ -10,7 +10,7 @@ export default (config, env, helpers) => {
 
     // Disable adding hashes to the css classes
     const {loader: cssLoader} = helpers.getLoadersByName(config, "css-loader")[0];
-    cssLoader.options.localIdentName = "[local]";
+    cssLoader.options.modules.localIdentName = "[local]";
 
     // Turn on the preload option of HtmlWebpackPlugin, so that <link> tags in index.html get the 'rel=preload' option.
     // For reference, a 'plugin wrapper' is defined here: https://github.com/preactjs/preact-cli/blob/master/docs/webpack-helpers.md#pluginwrapper.

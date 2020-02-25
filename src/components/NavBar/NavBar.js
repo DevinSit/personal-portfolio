@@ -7,11 +7,13 @@ import "./NavBar.scss";
 const useScrollToSectionOnLoad = () => {
     // Only needs to run once on load; other scrolls are handled explicitly.
     useEffect(() => {
-        const section = window.location.hash;
+        if (typeof window !== "undefined") {
+            const section = window.location.hash;
 
-        if (section) {
-            // Remove the hash before trying to scroll.
-            scrollTo(section.split("#")[1]);
+            if (section) {
+                // Remove the hash before trying to scroll.
+                scrollTo(section.split("#")[1]);
+            }
         }
     }, []);
 };

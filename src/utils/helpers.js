@@ -24,6 +24,11 @@ export const debounceWithLeading = (func, wait) => {
 };
 
 export const scrollTo = (id) => {
+    // Guard for server side rendering.
+    if (typeof window === "undefined") {
+        return;
+    }
+
     const element = document.getElementById(id);
     const headerOffset = 80;  // The $header-height variable in style/_dimens.scss
     const bodyRect = document.body.getBoundingClientRect().top;

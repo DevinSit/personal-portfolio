@@ -28,8 +28,7 @@ const Contact = () => (
 
             <div className="contact-body">
                 <p className="contact-paragraph">
-                    <div>Like what you see?</div>
-                    <div>Let&apos;s chat.</div>
+                    Like what you see? <br /> Let&apos;s chat.
                 </p>
 
                 <ContactInfo />
