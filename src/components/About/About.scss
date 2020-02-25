@@ -12,14 +12,14 @@
     flex-direction: column;
     width: 100%;
 
-    .aboutContent {
+    .about-content {
         height: 100%;
         max-width: $section-width;
 
-        .body {
+        .about-content-body {
             height: 100%;
 
-            .paragraph {
+            .about-content-paragraph {
                 @include normal-paragraph();
 
                 &:first-child {
@@ -27,15 +27,7 @@
                 }
             }
 
-            .bold {
-                font-weight: bold;
-            }
-
-            .italic {
-                font-style: italic;
-            }
-
-            .highlight {
+            .about-highlight {
                 color: $color-primary-dark;
                 font-weight: bold;
             }

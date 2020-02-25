@@ -54,8 +54,10 @@ $menu-foreground-z-index: 99999;
         .navbar-nav-item {
             @include section-header();
 
+            cursor: pointer;
             color: $color-background;
             margin-top: $default-spacing * 3;
+            text-transform: uppercase;
 
             @include breakpoint-mobile-landscape-height {
                 margin: 0 $default-spacing;

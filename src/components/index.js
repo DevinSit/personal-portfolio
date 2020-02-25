@@ -1,17 +1,8 @@
-import About from "./About";
-import Contact from "./Contact";
-import Footer from "./Footer";
-import Home from "./Home";
-import NavBar from "./NavBar";
-import Resume from "./Resume";
-import Skills from "./Skills";
-
-export {
-    About,
-    Contact,
-    Footer,
-    Home,
-    NavBar,
-    Resume,
-    Skills
-};
+export {default as About} from "./About";
+export {default as Contact} from "./Contact";
+export {default as Footer} from "./Footer";
+export {default as Home} from "./Home";
+export {default as NavBar} from "./NavBar";
+export {default as Projects} from "./Projects";
+export {default as Resume} from "./Resume";
+export {default as Skills} from "./Skills";

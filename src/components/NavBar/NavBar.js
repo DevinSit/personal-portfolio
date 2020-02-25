@@ -1,16 +1,30 @@
-import {Component} from "preact";
-import classNames from "classnames";
-import {Logo} from "components/common";
-import {debounceWithLeading, scrollTo} from "utils/helpers";
+import {useEffect} from "preact/hooks";
+import {scrollTo} from "utils/helpers";
 import DesktopNavBar from "./DesktopNavBar";
 import MobileNavBar from "./MobileNavBar";
 import "./NavBar.scss";
 
-const NavBar = () => (
-    <header id="navbar">
-        <DesktopNavBar />
-        <MobileNavBar />
-    </header>
-);
+const useScrollToSectionOnLoad = () => {
+    // Only needs to run once on load; other scrolls are handled explicitly.
+    useEffect(() => {
+        const section = window.location.hash;
+
+        if (section) {
+            // Remove the hash before trying to scroll.
+            scrollTo(section.split("#")[1]);
+        }
+    }, []);
+};
+
+const NavBar = () => {
+    useScrollToSectionOnLoad();
+
+    return (
+        <header id="navbar">
+            <DesktopNavBar />
+            <MobileNavBar />
+        </header>
+    );
+};
 
 export default NavBar;

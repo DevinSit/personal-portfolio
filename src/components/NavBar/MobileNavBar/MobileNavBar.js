@@ -1,80 +1,52 @@
-import {Component} from "preact";
+import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
 import {Logo} from "components/common";
-import {debounceWithLeading, scrollTo} from "utils/helpers";
+import {NAVBAR_ITEMS} from "utils/constants";
+import {scrollTo} from "utils/helpers";
 import "./MobileNavBar.scss";
 
-export default class MobileNavBar extends Component {
-    state = {
-        menuOpen: false
-    }
+const MobileNavBar = () => {
+    const [isMenuOpen, setMenuOpen] = useState(false);
+    const onMenuClick = useCallback(() => setMenuOpen(!isMenuOpen), [isMenuOpen, setMenuOpen]);
 
-    onNavClick = (id) => () => {
+    const onNavClick = useCallback((id) => () => {
         scrollTo(id);
-        this.setState({menuOpen: false});
-    };
+        setMenuOpen(false);
+    }, [setMenuOpen]);
 
-    onMenuClick = () => this.setState({menuOpen: !this.state.menuOpen});
+    const navItems = useMemo(() => NAVBAR_ITEMS.map((navItem) => (
+        <a key={navItem} className="navbar-nav-item" onClick={onNavClick(navItem)}>
+            {navItem}
+        </a>
+    )), [onNavClick]);
 
-    render() {
-        const {menuOpen} = this.state;
+    return (
+        <div className="navbar-mobile">
+            <nav className={classNames("navbar-nav", {"navbar-nav--visible": isMenuOpen})}>
+                <Logo
+                    className="navbar-logo"
+                    inverted={true}
+                    onClick={onNavClick("home")}
+                />
 
-        return (
-            <div className="navbar-mobile">
-                <nav className={classNames("navbar-nav", {"navbar-nav--visible": menuOpen})}>
-                    <Logo
-                        className="navbar-logo"
-                        inverted={true}
-                        onClick={this.onNavClick("home")}
-                    />
+                {navItems}
+            </nav>
 
-                    <a
-                        className="navbar-nav-item"
-                        onClick={this.onNavClick("about")}
-                    >
-                        ABOUT
-                    </a>
+            <div className={classNames("menu-background", {"menu-background--expand": isMenuOpen})} />
 
-                    <a
-                        className="navbar-nav-item"
-                        onClick={this.onNavClick("skills")}
-                    >
-                        SKILLS
-                    </a>
-
-                    <a
-                        className="navbar-nav-item"
-                        onClick={this.onNavClick("resume")}
-                    >
-                        RESUME
-                    </a>
-
-                    <a
-                        className="navbar-nav-item"
-                        onClick={this.onNavClick("contact")}
-                    >
-                        CONTACT
-                    </a>
-                </nav>
-
-                <div 
-                    className={
-                        classNames("menu-background", {"menu-background--expand": menuOpen}
-                    )}
-                ></div>
-
-                <button
-                    className={classNames(
-                        "navbar-open-button", "hamburger--spin", {"is-active": menuOpen}
-                    )}
-                    onClick={this.onMenuClick}
-                    aria-label="Open Menu"
-                >
-                    <span className="hamburger-box">
-                        <span className="hamburger-inner"></span>
-                    </span>
-                </button>
-            </div>
-        );
-    }
+            <button
+                className={classNames(
+                    "navbar-open-button", "hamburger--spin", {"is-active": isMenuOpen}
+                )}
+                onClick={onMenuClick}
+                aria-label="Open Menu"
+            >
+                <span className="hamburger-box">
+                    <span className="hamburger-inner" />
+                </span>
+            </button>
+        </div>
+    );
 };
+
+export default MobileNavBar;

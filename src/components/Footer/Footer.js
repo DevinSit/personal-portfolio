@@ -1,4 +1,3 @@
-import Preact from "preact";
 import "./Footer.scss";
 
 const Footer = () => (

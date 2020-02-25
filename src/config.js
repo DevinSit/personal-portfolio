@@ -4,6 +4,6 @@ export const isProduction = () => {
     } else {
         return false;
     }
-}
+};
 
 export const GOOGLE_ANALYTICS_TRACKING_CODE = "UA-129597474-2";

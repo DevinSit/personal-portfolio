@@ -1,4 +1,4 @@
-.PHONY: start build deploy
+.PHONY: start build deploy lint
 
 start:
 	npm start
@@ -8,3 +8,6 @@ build:
 
 deploy:
 	bash ./scripts/deploy.sh
+
+lint:
+	npm run lint

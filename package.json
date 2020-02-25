@@ -19,6 +19,8 @@
     "devDependencies": {
         "eslint": "^4.5.0",
         "eslint-config-synacor": "^1.1.0",
+        "eslint-plugin-react": "^7.18.3",
+        "eslint-plugin-react-hooks": "^2.4.0",
         "node-sass": "^4.13.1",
         "preact-cli": "^2.2.1",
         "sass-loader": "^7.1.0"

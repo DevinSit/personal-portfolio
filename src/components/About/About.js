@@ -1,25 +1,24 @@
-import {Component} from "preact";
+/* eslint-disable max-len */
+
 import {SectionHeader} from "components/common";
-import style from "./About.scss";
+import "./About.scss";
 
-export default class About extends Component {
-	render() {
-		return (
-			<div id={style.about}>
-                <div className={style.aboutContent}>
-                    <SectionHeader text="ABOUT ME" />
+const About = () => (
+    <div id="about">
+        <div className="about-content">
+            <SectionHeader text="ABOUT ME" />
 
-                    <div className={style.body}>
-                        <p className={style.paragraph}>
-                            <span className={style.bold}>Just who is this Devin Sit guy anyways?</span> Well, one could say that I’m a <span className={style.bold}>final-semester student</span> at the University of Ottawa studying Software Engineering. One could also say that I’m a <span className={style.bold}>fast learner</span> and a <span className={style.bold}>pragmatist</span> — someone who can quickly pick up new technologies and apply them effectively in a logical and methodical manner.
-                        </p>
+            <div className="about-content-body">
+                <p className="about-content-paragraph">
+                    <strong>Just who is this Devin Sit guy anyways?</strong> Well, I like to think that I’m primarily a <strong>problem solver</strong>. But it would also be fair to say that I’m a <strong>fast learner</strong> and a <strong>pragmatist</strong> — someone who can quickly pick up new technologies and apply them effectively in a logical and methodical manner.
+                </p>
 
-                        <p className={style.paragraph}>
-                            But <span className={style.italic}>you</span> probably care most that I’m a <span className={style.highlight}>Full Spectrum Developer</span>. As such, I strive to build user experiences from the absolute ground up — from idea conception all the way to solution delivery — and I hit on the full spectrum of web and mobile development domains to get it done.
-                        </p>
-                    </div>
-                </div>
-			</div>
-		);
-	}
-}
+                <p className="about-content-paragraph">
+                    But <em>you</em> probably care most that I’m a <span className="about-highlight">Full Spectrum Developer</span>. As such, I strive to build user experiences from the absolute ground up — from idea conception all the way to solution delivery — and I hit on the full spectrum of web and mobile development domains to get it done.
+                </p>
+            </div>
+        </div>
+    </div>
+);
+
+export default About;
