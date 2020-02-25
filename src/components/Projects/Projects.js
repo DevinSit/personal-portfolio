@@ -1,7 +1,7 @@
 import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
-import {IconBack, IconExternalLink, IconFlip, IconGithub} from "assets/icons";
 import {DankMemeClassifierImage, KubailsImage, TransitrImage} from "assets/projectImages";
+import {IconBack, IconExternalLink, IconFlip, IconGithub} from "components/icons";
 import {SectionHeader} from "components/common";
 import "./Projects.scss";
 

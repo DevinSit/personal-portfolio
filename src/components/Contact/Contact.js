@@ -1,5 +1,5 @@
-import {IconEmail, IconLinkedin} from "assets/icons";
 import {SectionHeader} from "components/common";
+import {IconEmail, IconLinkedin} from "components/icons";
 import "./Contact.scss";
 
 const ContactInfo = () => (

@@ -1,5 +1,5 @@
-import {IconNextSection} from "assets/icons";
 import {Logo} from "components/common";
+import {IconNextSection} from "components/icons";
 import {scrollTo} from "utils/helpers";
 import "./Home.scss";
 
