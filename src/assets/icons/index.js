@@ -1,12 +1,12 @@
-import IconBack from "./icon-back.svg";
-import IconEmail from "./icon-email.svg";
-import IconExternalLink from "./icon-external-link.svg";
-import IconFlip from "./icon-flip.svg";
-import IconGithub from "./icon-github.svg";
-import IconLinkedin from "./icon-linkedin.svg";
-import IconLogo from "./icon-logo.svg";
-import IconLogoInverted from "./icon-logo-inverted.svg";
-import IconNextSection from "./icon-next-section.svg";
+import IconBack from "./IconBack";
+import IconEmail from "./IconEmail";
+import IconExternalLink from "./IconExternalLink";
+import IconFlip from "./IconFlip";
+import IconGithub from "./IconGithub";
+import IconLinkedin from "./IconLinkedin";
+import IconLogo from "./IconLogo";
+import IconLogoInverted from "./IconLogoInverted";
+import IconNextSection from "./IconNextSection";
 
 export {
     IconBack,

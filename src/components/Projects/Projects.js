@@ -35,7 +35,7 @@ const PROJECTS_INFO = [
     }
 ];
 
-const FloatingAction = ({className, icon, iconAlt = "", link = "", onClick}) => (
+const FloatingAction = ({className, Icon, link = "", onClick}) => (
     link ? (
         <a
             className={classNames(className, "floating-action")}
@@ -44,14 +44,14 @@ const FloatingAction = ({className, icon, iconAlt = "", link = "", onClick}) => 
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
         >
-            <img src={icon} alt={iconAlt} />
+            <Icon />
         </a>
     ) : (
         <button
             className={classNames(className, "floating-action")}
             onClick={onClick}
         >
-            <img src={icon} alt={iconAlt} />
+            <Icon />
         </button>
     )
 );
@@ -92,8 +92,7 @@ const ProjectCard = ({
 
                     <FloatingAction
                         className="project-card-flip-button"
-                        icon={IconFlip}
-                        iconAlt="flip"
+                        Icon={IconFlip}
                         onClick={onFlip}
                     />
 
@@ -122,10 +121,7 @@ const ProjectCard = ({
 
                     <div className="project-card-back-navigation">
                         <button className="project-card-back-flip-button" onClick={onFlip}>
-                            <img
-                                src={IconBack}
-                                alt="flip"
-                            />
+                            <IconBack />
                         </button>
 
                         <div className="project-card-external-navigation">
@@ -133,8 +129,7 @@ const ProjectCard = ({
                                 githubLink && (
                                     <FloatingAction
                                         className="project-card-navigation-button"
-                                        icon={IconGithub}
-                                        iconAlt="github"
+                                        Icon={IconGithub}
                                         link={githubLink}
                                     />
                                 )
@@ -144,8 +139,7 @@ const ProjectCard = ({
                                 externalLink && (
                                     <FloatingAction
                                         className="project-card-navigation-button"
-                                        icon={IconExternalLink}
-                                        iconAlt="external link"
+                                        Icon={IconExternalLink}
                                         link={externalLink}
                                     />
                                 )

@@ -5,12 +5,12 @@ import "./Contact.scss";
 const ContactInfo = () => (
     <div className="contact-info-container">
         <div className="contact-info">
-            <img src={IconEmail} alt="email" />
+            <IconEmail />
             <p className="contact-info-text">devin@devinsit.com</p>
         </div>
 
         <div className="contact-info">
-            <img src={IconLinkedin} alt="linkedin" />
+            <IconLinkedin />
             <a
                 className="contact-info-text"
                 href="https://www.linkedin.com/in/devin-sit/"
