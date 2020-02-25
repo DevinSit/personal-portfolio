@@ -13,17 +13,28 @@
 		<% if (htmlWebpackPlugin.options.manifest.theme_color) { %>
 			<meta name="theme-color" content="<%= htmlWebpackPlugin.options.manifest.theme_color %>">
 		<% } %>
+
+		<!-- Preload fonts -->
+		<% for (var asset of webpack.assets) { %>
+			<% if (htmlWebpackPlugin.options.preload && asset.name.match(/\.(woff2)$/)) { %>
+				<!-- The crossorigin and type attributes are necessary as per: https://stackoverflow.com/a/36508361. Otherwise, the browser will load the fonts twice. -->
+				<link rel="preload" href="<%= htmlWebpackPlugin.files.publicPath + asset.name %>" as="font" type="font/woff2" crossorigin>
+			<% } %>
+		<% } %>
+
 		<% for (var chunk of webpack.chunks) { %>
-		 <% if (chunk.names.length === 1 && chunk.names[0] === 'polyfills') continue; %>
+			<% if (chunk.names.length === 1 && chunk.names[0] === 'polyfills') continue; %>
+
 			<% for (var file of chunk.files) { %>
 				<% if (htmlWebpackPlugin.options.preload && file.match(/\.(js|css)$/)) { %>
-					<link rel="preload" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>">
+					<link rel="preload" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/) ? 'style': 'script' %>">
 				<% } else if (file.match(/manifest\.json$/)) { %>
 					<link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath + file %>">
 				<% } %>
 			<% } %>
 		<% } %>
 	</head>
+
 	<body>
 		<%= htmlWebpackPlugin.options.ssr({
 			url: '/'
