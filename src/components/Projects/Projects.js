@@ -35,30 +35,6 @@ const PROJECTS_INFO = [
     }
 ];
 
-const Projects = () => {
-    const projectCards = useMemo(() => PROJECTS_INFO.map((project) => (
-        <ProjectCard key={project.title} {...project} />
-    )), []);
-
-    return (
-        <div id="projects">
-            <div className="projects-content">
-                <SectionHeader text="PROJECTS" />
-
-                <div className="projects-body">
-                    <p className="projects-paragraph">
-                        A small collection of my favourite side projects.
-                    </p>
-
-                    <div className="projects-cards">
-                        {projectCards}
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-};
-
 const FloatingAction = ({className, icon, iconAlt = "", link = "", onClick}) => (
     link ? (
         <a
@@ -145,11 +121,10 @@ const ProjectCard = ({
                     </div>
 
                     <div className="project-card-back-navigation">
-                        <button className="project-card-back-flip-button">
+                        <button className="project-card-back-flip-button" onClick={onFlip}>
                             <img
                                 src={IconBack}
                                 alt="flip"
-                                onClick={onFlip}
                             />
                         </button>
 
@@ -176,6 +151,30 @@ const ProjectCard = ({
                                 )
                             }
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const Projects = () => {
+    const projectCards = useMemo(() => PROJECTS_INFO.map((project) => (
+        <ProjectCard key={project.title} {...project} />
+    )), []);
+
+    return (
+        <div id="projects">
+            <div className="projects-content">
+                <SectionHeader text="PROJECTS" />
+
+                <div className="projects-body">
+                    <p className="projects-paragraph">
+                        A small collection of my favourite side projects.
+                    </p>
+
+                    <div className="projects-cards">
+                        {projectCards}
                     </div>
                 </div>
             </div>
