@@ -2,7 +2,7 @@ import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
 import {DankMemeClassifierImage, KubailsImage, TransitrImage} from "assets/projectImages";
 import {IconBack, IconExternalLink, IconFlip, IconGithub} from "components/icons";
-import {SectionHeader} from "components/common";
+import {LazyImage, SectionHeader} from "components/common";
 import "./Projects.scss";
 
 const PROJECTS_INFO = [
@@ -89,7 +89,7 @@ const ProjectCard = ({
             <div className={classNames("project-card-inner", {"project-card--flipped": isFlipped})}>
                 <div className="project-card-front">
                     <div className="project-card-image-container">
-                        <img className="project-card-image" src={image} alt={title} />
+                        <LazyImage className="project-card-image" src={image} alt={title} />
                     </div>
 
                     <FloatingAction
