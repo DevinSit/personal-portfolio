@@ -35,13 +35,14 @@ const PROJECTS_INFO = [
     }
 ];
 
-const FloatingAction = ({className, Icon, link = "", onClick}) => (
+const FloatingAction = ({className, Icon, link = "", alt = "", onClick}) => (
     link ? (
         <a
             className={classNames(className, "floating-action")}
             href={link}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={alt}
             onClick={(e) => e.stopPropagation()}
         >
             <Icon />
@@ -49,6 +50,7 @@ const FloatingAction = ({className, Icon, link = "", onClick}) => (
     ) : (
         <button
             className={classNames(className, "floating-action")}
+            aria-label={alt}
             onClick={onClick}
         >
             <Icon />
@@ -93,6 +95,7 @@ const ProjectCard = ({
                     <FloatingAction
                         className="project-card-flip-button"
                         Icon={IconFlip}
+                        alt="flip card"
                         onClick={onFlip}
                     />
 
@@ -120,7 +123,7 @@ const ProjectCard = ({
                     </div>
 
                     <div className="project-card-back-navigation">
-                        <button className="project-card-back-flip-button" onClick={onFlip}>
+                        <button className="project-card-back-flip-button" aria-label="flip back" onClick={onFlip}>
                             <IconBack />
                         </button>
 
@@ -131,6 +134,7 @@ const ProjectCard = ({
                                         className="project-card-navigation-button"
                                         Icon={IconGithub}
                                         link={githubLink}
+                                        alt="github"
                                     />
                                 )
                             }
@@ -141,6 +145,7 @@ const ProjectCard = ({
                                         className="project-card-navigation-button"
                                         Icon={IconExternalLink}
                                         link={externalLink}
+                                        alt="external link"
                                     />
                                 )
                             }
