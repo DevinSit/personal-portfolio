@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-import SkillImages from "assets/skillLogos";
+import * as SkillLogos from "./skillLogos";
 
 const FrontendDescription = () => (
     <span>
@@ -55,26 +55,26 @@ export const SKILLS = ["FRONTEND", "BACKEND", "MOBILE", "DESIGN", "DEVOPS", "DAT
 export const SKILL_DESCRIPTIONS = {
     FRONTEND: {
         description: FrontendDescription,
-        images: [SkillImages.LogoReact, SkillImages.LogoRedux, SkillImages.LogoSass]
+        logos: [SkillLogos.LogoReact, SkillLogos.LogoRedux, SkillLogos.LogoSass]
     },
     BACKEND: {
         description: BackendDescription,
-        images: [SkillImages.LogoNode, SkillImages.LogoPython, SkillImages.LogoRuby]
+        logos: [SkillLogos.LogoNode, SkillLogos.LogoPython, SkillLogos.LogoRuby]
     },
     MOBILE: {
         description: MobileDescription,
-        images: [SkillImages.LogoAndroid, SkillImages.LogoReact]
+        logos: [SkillLogos.LogoAndroid, SkillLogos.LogoReact]
     },
     DESIGN: {
         description: DesignDescription,
-        images: [SkillImages.LogoFigma]
+        logos: [SkillLogos.LogoFigma]
     },
     DEVOPS: {
         description: DevopsDescription,
-        images: [SkillImages.LogoDocker, SkillImages.LogoKubernetes, SkillImages.LogoGoogleCloud]
+        logos: [SkillLogos.LogoDocker, SkillLogos.LogoKubernetes, SkillLogos.LogoGoogleCloud]
     },
     DATA: {
         description: DataDescription,
-        images: [SkillImages.LogoKeras, SkillImages.LogoScikitLearn]
+        logos: [SkillLogos.LogoKeras, SkillLogos.LogoScikitLearn]
     }
 };

@@ -62,15 +62,10 @@ const SkillsSelector = ({skills, selectedSkill, onSkillSelected}) => {
     );
 };
 
-const SkillDescription = ({Description, images = []}) => {
-    const skillLogos = useMemo(() => images.map((image, index) => (
-        <img
-            key={index}
-            src={image}
-            className="skills-image"
-            alt="skill logo"
-        />
-    )), [images]);
+const SkillDescription = ({Description, logos = []}) => {
+    const skillLogos = useMemo(() => logos.map((Logo, index) => (
+        <Logo key={index} className="skills-logo" />
+    )), [logos]);
 
     return (
         <div className="skills-description-container">
@@ -78,7 +73,7 @@ const SkillDescription = ({Description, images = []}) => {
                 <Description />
             </p>
 
-            <div className="skills-images">
+            <div className="skills-logos">
                 {skillLogos}
             </div>
         </div>
@@ -105,7 +100,7 @@ const Skills = () => {
 
                 <SkillDescription
                     Description={selectedSkillDescription.description}
-                    images={selectedSkillDescription.images}
+                    logos={selectedSkillDescription.logos}
                 />
             </div>
         </div>

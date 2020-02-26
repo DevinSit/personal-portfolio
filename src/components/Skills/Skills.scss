@@ -193,14 +193,14 @@ $skill-description-max-width: 450px;
         }
     }
 
-    .skills-images {
+    .skills-logos {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
         margin: $default-spacing*2 0;
         max-width: $skill-description-max-width;
 
-        .skills-image {
+        .skills-logo {
             height: $default-spacing * 4;
             width: $default-spacing * 4;
 
