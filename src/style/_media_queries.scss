@@ -1,5 +1,5 @@
 $mobile-width: 450px;
-$mobile-landscape-height: 450px;
+$mobile-landscape-height: 650px;
 $breakpoint-navbar-width: 850px;
 
 @mixin breakpoint-mobile-width {
@@ -16,6 +16,10 @@ $breakpoint-navbar-width: 850px;
 
 @mixin breakpoint-navbar {
     @media (max-width: #{$breakpoint-navbar-width}) {
+        @content
+    }
+
+    @media (max-height: #{$mobile-landscape-height}) {
         @content
     }
 }
