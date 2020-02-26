@@ -1,34 +1,48 @@
 const fs = require("fs");
 const SVGO = require("svgo");
-const {parse} = require("node-html-parser");
 
 // Example usage:
 //
-//  node convert-svg-to-component.js icon-back.svg Back
+//  node convert-svg-to-component.js icon-back.svg IconBack
 //
 // Result:
 //
 //  A new file called 'IconBack.js' has been created.
 
-const passedFile = process.argv[2];
-const iconName = process.argv[3];
+const kebabToUpperCamel = (str) => {
+    const camelCase = str.replace(
+        /([-_][a-z])/g,
+        (group) => (
+            group.toUpperCase()
+                 .replace("-", "")
+                 .replace("_", "")
+        )
+    );
 
-if (!passedFile) {
-    console.log("No SVG file provided; exiting.");
-    process.exit(1);
-}
+    return camelCase.charAt(0).toUpperCase() + camelCase.substring(1);
+};
 
-if (!iconName) {
-    console.log("No icon name provided; exiting.");
-    process.exit(1);
-}
+const processArgs = () => {
+    const fileName = process.argv[2];
+    let componentName = process.argv[3];
 
-const svgo = new SVGO({plugins: [{removeViewBox: false}]});
-
-fs.readFile(passedFile, "utf8", async (err, data) => {
-    if (err) {
-        throw err;
+    if (!fileName) {
+        console.log("No SVG file provided; exiting.");
+        process.exit(1);
     }
+
+    if (!componentName) {
+        // Obviously, assumes that the file name is kebab case.
+        componentName = kebabToUpperCamel(fileName.split(".")[0]);
+    }
+
+    return {fileName, componentName};
+};
+
+const optimizeSvg = async (fileName) => {
+    const svgo = new SVGO({plugins: [{removeViewBox: false}]});
+
+    const data = fs.readFileSync(fileName, "utf8");
 
     const result = await svgo.optimize(data);
     let svg = result.data;
@@ -36,13 +50,26 @@ fs.readFile(passedFile, "utf8", async (err, data) => {
     // Add in the className property.
     svg = svg.replace("<svg ", "<svg className={className} ");
 
+    return svg;
+};
+
+const generateComponentCode = (svg = "", componentName = "") => {
     const component = `/* eslint-disable */
 
-const Icon${iconName} = ({className = ""}) => (
+const ${componentName} = ({className = ""}) => (
     ${svg}
 );
 
-export default Icon${iconName};`;
+export default ${componentName};`;
 
-    fs.writeFile(`Icon${iconName}.js`, component, () => {});
-});
+    fs.writeFileSync(`${componentName}.js`, component);
+};
+
+const main = async () => {
+    const {fileName, componentName} = processArgs();
+    const svg = await optimizeSvg(fileName);
+
+    generateComponentCode(svg, componentName);
+};
+
+main();
