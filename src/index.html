@@ -8,13 +8,17 @@
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 
+		<!-- PWA Manifest -->
 		<link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>manifest.json">
 
 		<% if (htmlWebpackPlugin.options.manifest.theme_color) { %>
 			<meta name="theme-color" content="<%= htmlWebpackPlugin.options.manifest.theme_color %>">
 		<% } %>
 
-		<!-- Preload fonts -->
+		<!-- PWA Icon for iOS Users -->
+		<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+		<!-- Preload Fonts -->
 		<% for (var asset of webpack.assets) { %>
 			<% if (htmlWebpackPlugin.options.preload && asset.name.match(/\.(woff2)$/)) { %>
 				<!-- The crossorigin and type attributes are necessary as per: https://stackoverflow.com/a/36508361. Otherwise, the browser will load the fonts twice. -->
@@ -33,6 +37,10 @@
 				<% } %>
 			<% } %>
 		<% } %>
+
+		<!-- Preconnect to Google for the Analytics Script -->
+		<link rel="preconnect" href="https://storage.googleapis.com">
+		<link rel="preconnect" href="https://www.google-analytics.com">
 	</head>
 
 	<body>

@@ -1,5 +1,5 @@
-import {IconNextSection} from "assets/icons";
 import {Logo} from "components/common";
+import {IconNextSection} from "components/icons";
 import {scrollTo} from "utils/helpers";
 import "./Home.scss";
 
@@ -26,7 +26,7 @@ const Home = () => {
                 className="home-next-section-nav-container"
                 onClick={onNextSectionClick}
             >
-                <img src={IconNextSection} className="home-next-section-nav" alt="next section" />
+                <IconNextSection className="home-next-section-nav" />
             </a>
         </div>
     );

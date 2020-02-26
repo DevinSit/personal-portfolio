@@ -1,15 +1,17 @@
-import Analytics from "analytics";
-import googleAnalytics from "@analytics/google-analytics";
+/* eslint-disable */
+
 import {isProduction, GOOGLE_ANALYTICS_TRACKING_CODE} from "src/config";
 
 export const initAnalytics = () => {
     if (isProduction()) {
-        const analytics = Analytics({
-            app: "devin-sit-portfolio",
-            version: 1,
-            plugins: [googleAnalytics({trackingId: GOOGLE_ANALYTICS_TRACKING_CODE})]
-        });
+        // This is the Google Analytics script from:
+        // https://developers.google.com/analytics/devguides/collection/analyticsjs
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-        analytics.page({url: window.location.pathname + window.location.hash});
+        ga('create', GOOGLE_ANALYTICS_TRACKING_CODE, 'auto');
+        ga('send', 'pageview');
     }
-};
+}

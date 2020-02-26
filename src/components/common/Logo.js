@@ -1,10 +1,11 @@
 import Preact from "preact";
-import {IconLogo, IconLogoInverted} from "assets/icons";
+import classNames from "classnames";
+import {IconLogo, IconLogoInverted} from "components/icons";
 import "./Logo.scss";
 
 const Logo = ({className, inverted = false, onClick = () => {}}) => (
-    <a className={className} onClick={onClick}>
-        <img src={inverted ? IconLogoInverted : IconLogo} className="logo" alt="logo" />
+    <a className={classNames(className, "logo")} onClick={onClick}>
+        {inverted ? <IconLogoInverted /> : <IconLogo />}
     </a>
 );
 

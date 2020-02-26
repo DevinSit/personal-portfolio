@@ -3,11 +3,14 @@
 
 .logo {
     cursor: pointer;
-    height: $default-spacing * 3;
-    width: $default-spacing * 3;
 
-    @include breakpoint-navbar {
-        height: $menu-fab-diameter;
-        width: $menu-fab-diameter;
+    svg {
+        height: $default-spacing * 3;
+        width: $default-spacing * 3;
+
+        @include breakpoint-navbar {
+            height: $menu-fab-diameter;
+            width: $menu-fab-diameter;
+        }
     }
 }

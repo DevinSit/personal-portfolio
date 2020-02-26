@@ -1,8 +1,8 @@
 import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
-import {IconBack, IconExternalLink, IconFlip, IconGithub} from "assets/icons";
 import {DankMemeClassifierImage, KubailsImage, TransitrImage} from "assets/projectImages";
-import {SectionHeader} from "components/common";
+import {IconBack, IconExternalLink, IconFlip, IconGithub} from "components/icons";
+import {LazyImage, SectionHeader} from "components/common";
 import "./Projects.scss";
 
 const PROJECTS_INFO = [
@@ -35,23 +35,25 @@ const PROJECTS_INFO = [
     }
 ];
 
-const FloatingAction = ({className, icon, iconAlt = "", link = "", onClick}) => (
+const FloatingAction = ({className, Icon, link = "", alt = "", onClick}) => (
     link ? (
         <a
             className={classNames(className, "floating-action")}
             href={link}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={alt}
             onClick={(e) => e.stopPropagation()}
         >
-            <img src={icon} alt={iconAlt} />
+            <Icon />
         </a>
     ) : (
         <button
             className={classNames(className, "floating-action")}
+            aria-label={alt}
             onClick={onClick}
         >
-            <img src={icon} alt={iconAlt} />
+            <Icon />
         </button>
     )
 );
@@ -87,13 +89,13 @@ const ProjectCard = ({
             <div className={classNames("project-card-inner", {"project-card--flipped": isFlipped})}>
                 <div className="project-card-front">
                     <div className="project-card-image-container">
-                        <img className="project-card-image" src={image} />
+                        <LazyImage className="project-card-image" src={image} alt={title} />
                     </div>
 
                     <FloatingAction
                         className="project-card-flip-button"
-                        icon={IconFlip}
-                        iconAlt="flip"
+                        Icon={IconFlip}
+                        alt="flip card"
                         onClick={onFlip}
                     />
 
@@ -121,11 +123,8 @@ const ProjectCard = ({
                     </div>
 
                     <div className="project-card-back-navigation">
-                        <button className="project-card-back-flip-button" onClick={onFlip}>
-                            <img
-                                src={IconBack}
-                                alt="flip"
-                            />
+                        <button className="project-card-back-flip-button" aria-label="flip back" onClick={onFlip}>
+                            <IconBack />
                         </button>
 
                         <div className="project-card-external-navigation">
@@ -133,9 +132,9 @@ const ProjectCard = ({
                                 githubLink && (
                                     <FloatingAction
                                         className="project-card-navigation-button"
-                                        icon={IconGithub}
-                                        iconAlt="github"
+                                        Icon={IconGithub}
                                         link={githubLink}
+                                        alt="github"
                                     />
                                 )
                             }
@@ -144,9 +143,9 @@ const ProjectCard = ({
                                 externalLink && (
                                     <FloatingAction
                                         className="project-card-navigation-button"
-                                        icon={IconExternalLink}
-                                        iconAlt="external link"
+                                        Icon={IconExternalLink}
                                         link={externalLink}
+                                        alt="external link"
                                     />
                                 )
                             }

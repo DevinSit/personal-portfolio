@@ -1,16 +1,16 @@
-import {IconEmail, IconLinkedin} from "assets/icons";
 import {SectionHeader} from "components/common";
+import {IconEmail, IconLinkedin} from "components/icons";
 import "./Contact.scss";
 
 const ContactInfo = () => (
     <div className="contact-info-container">
         <div className="contact-info">
-            <img src={IconEmail} alt="email" />
+            <IconEmail />
             <p className="contact-info-text">devin@devinsit.com</p>
         </div>
 
         <div className="contact-info">
-            <img src={IconLinkedin} alt="linkedin" />
+            <IconLinkedin />
             <a
                 className="contact-info-text"
                 href="https://www.linkedin.com/in/devin-sit/"
@@ -28,8 +28,7 @@ const Contact = () => (
 
             <div className="contact-body">
                 <p className="contact-paragraph">
-                    <div>Like what you see?</div>
-                    <div>Let&apos;s chat.</div>
+                    Like what you see? <br /> Let&apos;s chat.
                 </p>
 
                 <ContactInfo />
