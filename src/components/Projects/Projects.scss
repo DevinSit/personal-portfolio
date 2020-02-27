@@ -124,6 +124,11 @@ $project-card-image-height: 215px;
                 flex-direction: column;
                 height: $project-card-image-height;
                 overflow: hidden;
+
+                .project-card-image {
+                    object-fit: cover;
+                    object-position: center;
+                }
             }
 
             .project-card-flip-button {
