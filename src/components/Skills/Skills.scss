@@ -33,7 +33,7 @@ $mobile-content-side-padding: $default-spacing;
     .skills-header-text {
         @include section-header();
 
-        padding: $default-spacing*3 2px;
+        padding: $default-spacing*6 2px;
 
         @include breakpoint-navbar {
             padding: $default-spacing*2 2px;
@@ -197,7 +197,7 @@ $skill-description-max-width: 450px;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        margin: $default-spacing*2 0;
+        margin: $default-spacing*2 0 $default-spacing*6;
         max-width: $skill-description-max-width;
 
         .skills-logo {

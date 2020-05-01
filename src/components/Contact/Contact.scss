@@ -30,7 +30,7 @@
                 @include large-paragraph();
 
                 color: $color-light;
-                margin-bottom: $default-spacing * 3;
+                margin-bottom: $default-spacing * 6;
                 text-align: center;
             }
         }
@@ -40,7 +40,7 @@
 .contact-info-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: $default-spacing * 5;
+    margin-bottom: $default-spacing * 2;
 
     .contact-info {
         align-items: center;
