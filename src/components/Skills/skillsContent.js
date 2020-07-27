@@ -38,7 +38,7 @@ const DevopsDescription = () => (
     <span>
         One of the big buzzwords du jour, the DevOps tooling arena is one place I&apos;ve hedged quite a few bets on. I&apos;ve combined my strong dev experience with some new ops experience to be able to develop, deploy, and monitor apps end-to-end. This means things like <strong>Linux</strong>, some flavour of <strong>CI/CD</strong>, <strong>Docker</strong>/<strong>Kubernetes</strong>, and <strong>Google Cloud Platform</strong> are staples of my workflow. <br /><br />
 
-        That last one is particularly noteworthy since I&apos;m both a <strong>Google Cloud Certified</strong> <a href="https://www.credential.net/c5ek34qs?key=c1b6062f2b855942f6201ab308fb10415aa3069bfcd7d4198db54541a601ef72">Professional Cloud Architect</a> <em>and</em> <a href="https://www.credential.net/h49ok4lg?key=23d7a8c6baed86e7438bf41d5242f029851270d36f4063c8b3306ffd7951267b">Associate Cloud Engineer</a>. Fun stuff.
+        That last one is noteworthy since I was formerly a <strong>Google Cloud Certified</strong> <a href="https://www.credential.net/c5ek34qs?key=c1b6062f2b855942f6201ab308fb10415aa3069bfcd7d4198db54541a601ef72">Professional Cloud Architect</a> and <a href="https://www.credential.net/h49ok4lg?key=23d7a8c6baed86e7438bf41d5242f029851270d36f4063c8b3306ffd7951267b">Associate Cloud Engineer</a>. Fun stuff!
     </span>
 );
 
