@@ -42,7 +42,7 @@ $menu-foreground-z-index: 99999;
         opacity: 0;
         z-index: $menu-foreground-z-index;
 
-        @include breakpoint-mobile-landscape-height {
+        @include breakpoint-mobile-landscape {
             flex-direction: row;
         }
 
@@ -59,7 +59,10 @@ $menu-foreground-z-index: 99999;
             margin-top: $default-spacing * 3;
             text-transform: uppercase;
 
-            @include breakpoint-mobile-landscape-height {
+            @include breakpoint-mobile-landscape {
+                /* Shrink the font size so that all the items can fit horizontally. */
+                font-size: $mobile-large-text-size;
+
                 margin: 0 $default-spacing;
 
                 &:last-child {
