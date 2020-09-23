@@ -43,6 +43,7 @@ $menu-foreground-z-index: 99999;
         z-index: $menu-foreground-z-index;
 
         @include breakpoint-mobile-landscape {
+            bottom: $menu-fab-spacing * 5;
             flex-direction: row;
         }
 

@@ -1,24 +1,21 @@
 $mobile-width: 450px;
+$mobile-landscape-height: 450px;
 $breakpoint-navbar-width: 850px;
 
 @mixin breakpoint-mobile-width {
     @media (max-width: #{$mobile-width}) {
-        @content
+        @content;
     }
 }
 
 @mixin breakpoint-mobile-landscape {
-    @media (orientation: landscape) {
-        @content
+    @media (orientation: landscape), (max-height: #{$mobile-landscape-height}) {
+        @content;
     }
 }
 
 @mixin breakpoint-navbar {
     @media (max-width: #{$breakpoint-navbar-width}) {
-        @content
-    }
-
-    @media (orientation: landscape) {
-        @content
+        @content;
     }
 }
