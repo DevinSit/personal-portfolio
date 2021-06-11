@@ -46,7 +46,7 @@ const DataDescription = () => (
     <span>
         A duo of buzzwords to eclipse even DevOps, the fields of <strong>data science</strong> and <strong>machine learning</strong> are certainly en vogue. My experience here comes more so from building <strong>APIs</strong>, <strong>apps</strong>, and <strong>tooling</strong> around machine learning models, and less so from actually building the models themselves. <br /><br />
 
-        However, that doesn&apos;t mean that I don&apos;t have a strong understanding of the <strong>data science process</strong>, and a rudimentary ability to build models with frameworks like <strong>Keras</strong> or <strong>Scikit-Learn</strong>.
+        However, that doesn&apos;t mean that I don&apos;t have a strong understanding of the <strong>data science process</strong>, and a high-level understanding of frameworks like <strong>Keras</strong> or <strong>Scikit-Learn</strong>.
     </span>
 );
 
