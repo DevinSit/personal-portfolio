@@ -1,19 +1,19 @@
 import {useCallback, useMemo, useState} from "preact/hooks";
 import classNames from "classnames";
-import {DankMemeClassifierImage, KubailsImage, TransitrImage} from "assets/projectImages";
+import {DankMemeClassifierImage, KubailsImage, uFincsImage} from "assets/projectImages";
 import {IconBack, IconExternalLink, IconFlip, IconGithub} from "components/icons";
 import {LazyImage, SectionHeader} from "components/common";
 import "./Projects.scss";
 
 const PROJECTS_INFO = [
     {
-        title: "Transitr",
-        description: "Mobile app for finding OC Transpo bus arrival times using SMS instead of data.",
-        reason: "Because I got tired of manually texting the bus service.",
-        techStack: ["TypeScript", "React Native", "Redux + Redux Saga"],
-        githubLink: "https://github.com/DevinSit/transitr",
-        externalLink: "https://github.com/DevinSit/transitr/releases",
-        image: TransitrImage
+        title: "uFincs",
+        description: "Offline-first and e2e encrypted personal finance app that I founded.",
+        reason: "Because I wanted a modern version of GnuCash.",
+        techStack: ["TypeScript", "React", "Redux + Redux Saga"],
+        githubLink: "https://github.com/uFincs/uFincs",
+        externalLink: "https://ufincs.com/",
+        image: uFincsImage
     },
     {
         title: "Kubails",

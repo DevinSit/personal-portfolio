@@ -1,9 +1,9 @@
 import DankMemeClassifierImage from "./dankMemeClassifier.png";
 import KubailsImage from "./kubails.png";
-import TransitrImage from "./transitr.png";
+import uFincsImage from "./ufincs.png";
 
 export {
     DankMemeClassifierImage,
     KubailsImage,
-    TransitrImage
+    uFincsImage
 };
