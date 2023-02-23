@@ -1,8 +1,10 @@
 steps:
     - id: "Install npm dependencies"
-      name: "gcr.io/cloud-builders/npm"
+      name: "node:10.24.1"
+      entrypoint: "npm"
       args: ["ci"]
 
     - id: "Run linter"
-      name: "gcr.io/cloud-builders/npm"
+      name: "node:10.24.1"
+      entrypoint: "npm"
       args: ["run", "lint"]
