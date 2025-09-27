@@ -1,5 +1,4 @@
 import {useEffect, useRef, useState} from "react";
-import classNames from "classnames";
 
 const intersectionObserverAvailable = () =>
     typeof window !== undefined &&
