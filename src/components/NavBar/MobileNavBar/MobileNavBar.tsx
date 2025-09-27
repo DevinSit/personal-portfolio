@@ -10,7 +10,7 @@ const MobileNavBar = () => {
     const onMenuClick = useCallback(() => setMenuOpen(!isMenuOpen), [isMenuOpen, setMenuOpen]);
 
     const onNavClick = useCallback(
-        (id) => () => {
+        (id: string) => () => {
             scrollTo(id);
             setMenuOpen(false);
         },

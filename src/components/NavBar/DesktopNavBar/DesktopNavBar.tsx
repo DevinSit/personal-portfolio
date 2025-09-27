@@ -28,7 +28,7 @@ const useTransitionOnScroll = () => {
 
 const DesktopNavBar = () => {
     const isScrolled = useTransitionOnScroll();
-    const onNavClick = useCallback((id) => () => scrollTo(id), []);
+    const onNavClick = useCallback((id: string) => () => scrollTo(id), []);
 
     const navItems = useMemo(
         () =>

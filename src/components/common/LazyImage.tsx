@@ -1,16 +1,23 @@
-import {useEffect, useRef, useState} from "react";
+import {type ImgHTMLAttributes, useEffect, useRef, useState} from "react";
 
 const intersectionObserverAvailable = () =>
-    typeof window !== undefined &&
+    typeof window !== "undefined" &&
     "IntersectionObserver" in window &&
     "isIntersecting" in window.IntersectionObserverEntry.prototype;
 
-const LazyImage = ({src, ...otherProps}) => {
+interface LazyImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+    src: string;
+}
+
+const LazyImage = ({src, ...otherProps}: LazyImageProps) => {
     const [inView, setInView] = useState(false);
-    const ref = useRef(null);
+    const ref = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        const whenInView = (entries, observer) => {
+        const whenInView = (
+            entries: IntersectionObserverEntry[],
+            observer: IntersectionObserver
+        ) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     const image = entry.target;
@@ -23,21 +30,16 @@ const LazyImage = ({src, ...otherProps}) => {
 
         if (intersectionObserverAvailable()) {
             const observer = new IntersectionObserver(whenInView);
-            observer.observe(ref.current);
+            if (ref.current) {
+                observer.observe(ref.current);
+            }
         } else {
             // Don't bother with polyfilling IntersectionObserver; just load the image non-lazily.
             setInView(true);
         }
-    }, [ref, setInView]);
+    }, []);
 
-    return (
-        <img
-            src={inView ? src : undefined}
-            data-src={inView ? undefined : src}
-            ref={ref}
-            {...otherProps}
-        />
-    );
+    return <img ref={ref} src={inView ? src : ""} {...otherProps} />;
 };
 
 export default LazyImage;

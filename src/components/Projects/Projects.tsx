@@ -5,7 +5,17 @@ import {IconBack, IconExternalLink, IconFlip, IconGithub} from "components/icons
 import {LazyImage, SectionHeader} from "components/common";
 import "./Projects.scss";
 
-const PROJECTS_INFO = [
+interface Project {
+    title: string;
+    description: string;
+    reason: string;
+    techStack: string[];
+    githubLink: string;
+    externalLink: string | null;
+    image: string;
+}
+
+const PROJECTS_INFO: Project[] = [
     {
         title: "uFincs",
         description: "Offline-first and e2e encrypted personal finance app that I founded.",
@@ -35,7 +45,15 @@ const PROJECTS_INFO = [
     }
 ];
 
-const FloatingAction = ({className, Icon, link = "", alt = "", onClick}) =>
+interface FloatingActionProps {
+    className?: string;
+    Icon: React.ComponentType<{className?: string}>;
+    link?: string;
+    alt?: string;
+    onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+const FloatingAction = ({className, Icon, link = "", alt = "", onClick}: FloatingActionProps) =>
     link ? (
         <a
             className={classNames(className, "floating-action")}
@@ -57,7 +75,19 @@ const FloatingAction = ({className, Icon, link = "", alt = "", onClick}) =>
         </button>
     );
 
-const TechStackListItem = ({item}) => <li className="project-card-tech-stack-list-item">{item}</li>;
+const TechStackListItem = ({item}: {item: string}) => (
+    <li className="project-card-tech-stack-list-item">{item}</li>
+);
+
+interface ProjectCardProps {
+    title?: string;
+    description?: string;
+    reason?: string;
+    techStack?: string[];
+    githubLink?: string;
+    externalLink?: string | null;
+    image?: string;
+}
 
 const ProjectCard = ({
     title = "",
@@ -67,7 +97,7 @@ const ProjectCard = ({
     githubLink = "",
     externalLink = "",
     image = ""
-}) => {
+}: ProjectCardProps) => {
     const [isFlipped, setFlipped] = useState(false);
 
     const techStackList = useMemo(

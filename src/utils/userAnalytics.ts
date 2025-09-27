@@ -1,4 +1,5 @@
 /* eslint-disable */
+// @ts-nocheck
 
 import {isProduction, GOOGLE_ANALYTICS_TRACKING_CODE} from "config";
 

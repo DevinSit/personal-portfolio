@@ -15,7 +15,7 @@ const Header = () => (
     </div>
 );
 
-const ContentHeader = ({skill}) => (
+const ContentHeader = ({skill}: {skill: string}) => (
     <div className={classNames("skills-header", "skills-content-header")}>
         <div className={classNames("skills-header-left", "skills-content-header-left")}>
             <p className="skills-selector-description">
@@ -31,7 +31,13 @@ const ContentHeader = ({skill}) => (
     </div>
 );
 
-const SkillsSelectorItem = ({text = "", selected = false, onClick}) => (
+interface SkillsSelectorItemProps {
+    text?: string;
+    selected?: boolean;
+    onClick: () => void;
+}
+
+const SkillsSelectorItem = ({text = "", selected = false, onClick}: SkillsSelectorItemProps) => (
     <a
         className={classNames("skills-selector-item", {"skills-selector-item--selected": selected})}
         onClick={onClick}
@@ -41,7 +47,13 @@ const SkillsSelectorItem = ({text = "", selected = false, onClick}) => (
     </a>
 );
 
-const SkillsSelector = ({skills, selectedSkill, onSkillSelected}) => {
+interface SkillsSelectorProps {
+    skills: string[];
+    selectedSkill: string;
+    onSkillSelected: (skill: string) => () => void;
+}
+
+const SkillsSelector = ({skills, selectedSkill, onSkillSelected}: SkillsSelectorProps) => {
     const skillSelectors = useMemo(
         () =>
             skills.map((skill) => (
@@ -62,7 +74,12 @@ const SkillsSelector = ({skills, selectedSkill, onSkillSelected}) => {
     );
 };
 
-const SkillDescription = ({Description, logos = []}) => {
+interface SkillDescriptionProps {
+    Description: React.ComponentType;
+    logos?: React.ComponentType<{className?: string}>[];
+}
+
+const SkillDescription = ({Description, logos = []}: SkillDescriptionProps) => {
     const skillLogos = useMemo(
         () => logos.map((Logo, index) => <Logo key={index} className="skills-logo" />),
         [logos]
@@ -82,11 +99,12 @@ const SkillDescription = ({Description, logos = []}) => {
 const Skills = () => {
     const [selectedSkill, setSelectedSkill] = useState(SKILLS[0]);
     const onSkillSelected = useCallback(
-        (skill) => () => setSelectedSkill(skill),
+        (skill: string) => () => setSelectedSkill(skill),
         [setSelectedSkill]
     );
 
-    const selectedSkillDescription = SKILL_DESCRIPTIONS[selectedSkill];
+    const selectedSkillDescription =
+        SKILL_DESCRIPTIONS[selectedSkill as keyof typeof SKILL_DESCRIPTIONS];
 
     return (
         <div id="skills">
