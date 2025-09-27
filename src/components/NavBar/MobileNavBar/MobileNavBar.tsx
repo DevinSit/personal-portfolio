@@ -9,35 +9,40 @@ const MobileNavBar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const onMenuClick = useCallback(() => setMenuOpen(!isMenuOpen), [isMenuOpen, setMenuOpen]);
 
-    const onNavClick = useCallback((id) => () => {
-        scrollTo(id);
-        setMenuOpen(false);
-    }, [setMenuOpen]);
+    const onNavClick = useCallback(
+        (id) => () => {
+            scrollTo(id);
+            setMenuOpen(false);
+        },
+        [setMenuOpen]
+    );
 
-    const navItems = useMemo(() => NAVBAR_ITEMS.map((navItem) => (
-        <a key={navItem} className="navbar-nav-item" onClick={onNavClick(navItem)}>
-            {navItem}
-        </a>
-    )), [onNavClick]);
+    const navItems = useMemo(
+        () =>
+            NAVBAR_ITEMS.map((navItem) => (
+                <a key={navItem} className="navbar-nav-item" onClick={onNavClick(navItem)}>
+                    {navItem}
+                </a>
+            )),
+        [onNavClick]
+    );
 
     return (
         <div className="navbar-mobile">
             <nav className={classNames("navbar-nav", {"navbar-nav--visible": isMenuOpen})}>
-                <Logo
-                    className="navbar-logo"
-                    inverted={true}
-                    onClick={onNavClick("home")}
-                />
+                <Logo className="navbar-logo" inverted={true} onClick={onNavClick("home")} />
 
                 {navItems}
             </nav>
 
-            <div className={classNames("menu-background", {"menu-background--expand": isMenuOpen})} />
+            <div
+                className={classNames("menu-background", {"menu-background--expand": isMenuOpen})}
+            />
 
             <button
-                className={classNames(
-                    "navbar-open-button", "hamburger--spin", {"is-active": isMenuOpen}
-                )}
+                className={classNames("navbar-open-button", "hamburger--spin", {
+                    "is-active": isMenuOpen
+                })}
                 onClick={onMenuClick}
                 aria-label="Open Menu"
             >

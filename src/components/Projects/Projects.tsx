@@ -35,7 +35,7 @@ const PROJECTS_INFO = [
     }
 ];
 
-const FloatingAction = ({className, Icon, link = "", alt = "", onClick}) => (
+const FloatingAction = ({className, Icon, link = "", alt = "", onClick}) =>
     link ? (
         <a
             className={classNames(className, "floating-action")}
@@ -55,14 +55,9 @@ const FloatingAction = ({className, Icon, link = "", alt = "", onClick}) => (
         >
             <Icon />
         </button>
-    )
-);
+    );
 
-const TechStackListItem = ({item}) => (
-    <li className="project-card-tech-stack-list-item">
-        {item}
-    </li>
-);
+const TechStackListItem = ({item}) => <li className="project-card-tech-stack-list-item">{item}</li>;
 
 const ProjectCard = ({
     title = "",
@@ -75,12 +70,10 @@ const ProjectCard = ({
 }) => {
     const [isFlipped, setFlipped] = useState(false);
 
-    const techStackList = useMemo(() => techStack.map((item) => (
-        <TechStackListItem
-            key={item}
-            item={item}
-        />
-    )), [techStack]);
+    const techStackList = useMemo(
+        () => techStack.map((item) => <TechStackListItem key={item} item={item} />),
+        [techStack]
+    );
 
     const onFlip = useCallback(() => setFlipped(!isFlipped), [isFlipped, setFlipped]);
 
@@ -100,7 +93,9 @@ const ProjectCard = ({
                     />
 
                     <div className="project-card-info">
-                        <h3 className="project-card-title" onClick={onFlip}>{title}</h3>
+                        <h3 className="project-card-title" onClick={onFlip}>
+                            {title}
+                        </h3>
                         <p className="project-card-description">{description}</p>
                     </div>
                 </div>
@@ -123,32 +118,32 @@ const ProjectCard = ({
                     </div>
 
                     <div className="project-card-back-navigation">
-                        <button className="project-card-back-flip-button" aria-label="flip back" onClick={onFlip}>
+                        <button
+                            className="project-card-back-flip-button"
+                            aria-label="flip back"
+                            onClick={onFlip}
+                        >
                             <IconBack />
                         </button>
 
                         <div className="project-card-external-navigation">
-                            {
-                                githubLink && (
-                                    <FloatingAction
-                                        className="project-card-navigation-button"
-                                        Icon={IconGithub}
-                                        link={githubLink}
-                                        alt="github"
-                                    />
-                                )
-                            }
+                            {githubLink && (
+                                <FloatingAction
+                                    className="project-card-navigation-button"
+                                    Icon={IconGithub}
+                                    link={githubLink}
+                                    alt="github"
+                                />
+                            )}
 
-                            {
-                                externalLink && (
-                                    <FloatingAction
-                                        className="project-card-navigation-button"
-                                        Icon={IconExternalLink}
-                                        link={externalLink}
-                                        alt="external link"
-                                    />
-                                )
-                            }
+                            {externalLink && (
+                                <FloatingAction
+                                    className="project-card-navigation-button"
+                                    Icon={IconExternalLink}
+                                    link={externalLink}
+                                    alt="external link"
+                                />
+                            )}
                         </div>
                     </div>
                 </div>
@@ -158,9 +153,10 @@ const ProjectCard = ({
 };
 
 const Projects = () => {
-    const projectCards = useMemo(() => PROJECTS_INFO.map((project) => (
-        <ProjectCard key={project.title} {...project} />
-    )), []);
+    const projectCards = useMemo(
+        () => PROJECTS_INFO.map((project) => <ProjectCard key={project.title} {...project} />),
+        []
+    );
 
     return (
         <div id="projects">
@@ -172,9 +168,7 @@ const Projects = () => {
                         A small collection of my favourite side projects.
                     </p>
 
-                    <div className="projects-cards">
-                        {projectCards}
-                    </div>
+                    <div className="projects-cards">{projectCards}</div>
                 </div>
             </div>
         </div>

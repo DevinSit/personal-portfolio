@@ -7,8 +7,8 @@ $hamburger-layer-width: 20px;
 $hamburger-layer-height: 2px;
 $hamburger-layer-spacing: 4px;
 $hamburger-layer-color: $color-light;
-$hamburger-hover-opacity: 1.0;
-$hamburger-active-hover-opacity: 1.0;
+$hamburger-hover-opacity: 1;
+$hamburger-active-hover-opacity: 1;
 
 @import "style/hamburgers/hamburgers";
 
@@ -51,7 +51,7 @@ $menu-foreground-z-index: 99999;
             display: flex;
             opacity: 1;
         }
-        
+
         .navbar-nav-item {
             @include section-header();
 

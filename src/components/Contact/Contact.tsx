@@ -12,10 +12,7 @@ const ContactInfo = () => (
         <div className="contact-info">
             <IconLinkedin />
 
-            <a
-                className="contact-info-text"
-                href="https://www.linkedin.com/in/devin-sit/"
-            >
+            <a className="contact-info-text" href="https://www.linkedin.com/in/devin-sit/">
                 linkedin.com/in/devin-sit
             </a>
         </div>
@@ -23,10 +20,7 @@ const ContactInfo = () => (
         <div className="contact-info">
             <IconGithub />
 
-            <a
-                className="contact-info-text"
-                href="https://github.com/DevinSit"
-            >
+            <a className="contact-info-text" href="https://github.com/DevinSit">
                 github.com/DevinSit
             </a>
         </div>

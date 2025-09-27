@@ -19,7 +19,8 @@ const ContentHeader = ({skill}) => (
     <div className={classNames("skills-header", "skills-content-header")}>
         <div className={classNames("skills-header-left", "skills-content-header-left")}>
             <p className="skills-selector-description">
-                So what exactly can a <span className="skills-highlight">Full Spectrum Developer</span> do?
+                So what exactly can a{" "}
+                <span className="skills-highlight">Full Spectrum Developer</span> do?
             </p>
             <p className="skills-selector-description">Let&apos;s take a look.</p>
         </div>
@@ -32,10 +33,7 @@ const ContentHeader = ({skill}) => (
 
 const SkillsSelectorItem = ({text = "", selected = false, onClick}) => (
     <a
-        className={classNames(
-            "skills-selector-item",
-            {"skills-selector-item--selected": selected}
-        )}
+        className={classNames("skills-selector-item", {"skills-selector-item--selected": selected})}
         onClick={onClick}
     >
         <span>{text}</span>
@@ -44,28 +42,31 @@ const SkillsSelectorItem = ({text = "", selected = false, onClick}) => (
 );
 
 const SkillsSelector = ({skills, selectedSkill, onSkillSelected}) => {
-    const skillSelectors = useMemo(() => skills.map((skill) => (
-        <SkillsSelectorItem
-            key={skill}
-            text={skill}
-            selected={skill === selectedSkill}
-            onClick={onSkillSelected(skill)}
-        />
-    )), [skills, selectedSkill, onSkillSelected]);
+    const skillSelectors = useMemo(
+        () =>
+            skills.map((skill) => (
+                <SkillsSelectorItem
+                    key={skill}
+                    text={skill}
+                    selected={skill === selectedSkill}
+                    onClick={onSkillSelected(skill)}
+                />
+            )),
+        [skills, selectedSkill, onSkillSelected]
+    );
 
     return (
         <div className="skills-selector-container">
-            <div className="skills-selector">
-                {skillSelectors}
-            </div>
+            <div className="skills-selector">{skillSelectors}</div>
         </div>
     );
 };
 
 const SkillDescription = ({Description, logos = []}) => {
-    const skillLogos = useMemo(() => logos.map((Logo, index) => (
-        <Logo key={index} className="skills-logo" />
-    )), [logos]);
+    const skillLogos = useMemo(
+        () => logos.map((Logo, index) => <Logo key={index} className="skills-logo" />),
+        [logos]
+    );
 
     return (
         <div className="skills-description-container">
@@ -73,16 +74,17 @@ const SkillDescription = ({Description, logos = []}) => {
                 <Description />
             </p>
 
-            <div className="skills-logos">
-                {skillLogos}
-            </div>
+            <div className="skills-logos">{skillLogos}</div>
         </div>
     );
 };
 
 const Skills = () => {
     const [selectedSkill, setSelectedSkill] = useState(SKILLS[0]);
-    const onSkillSelected = useCallback((skill) => () => setSelectedSkill(skill), [setSelectedSkill]);
+    const onSkillSelected = useCallback(
+        (skill) => () => setSelectedSkill(skill),
+        [setSelectedSkill]
+    );
 
     const selectedSkillDescription = SKILL_DESCRIPTIONS[selectedSkill];
 

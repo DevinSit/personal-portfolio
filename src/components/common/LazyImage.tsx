@@ -1,11 +1,10 @@
 import {useEffect, useRef, useState} from "preact/hooks";
 import classNames from "classnames";
 
-const intersectionObserverAvailable = () => (
+const intersectionObserverAvailable = () =>
     typeof window !== undefined &&
     "IntersectionObserver" in window &&
-    "isIntersecting" in window.IntersectionObserverEntry.prototype
-);
+    "isIntersecting" in window.IntersectionObserverEntry.prototype;
 
 const LazyImage = ({src, ...otherProps}) => {
     const [inView, setInView] = useState(false);
@@ -14,7 +13,7 @@ const LazyImage = ({src, ...otherProps}) => {
     useEffect(() => {
         const whenInView = (entries, observer) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting){
+                if (entry.isIntersecting) {
                     const image = entry.target;
 
                     setInView(true);

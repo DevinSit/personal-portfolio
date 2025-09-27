@@ -30,19 +30,21 @@ const DesktopNavBar = () => {
     const isScrolled = useTransitionOnScroll();
     const onNavClick = useCallback((id) => () => scrollTo(id), []);
 
-    const navItems = useMemo(() => NAVBAR_ITEMS.map((navItem) => (
-        <a key={navItem} className="navbar-nav-item" onClick={onNavClick(navItem)}>
-            {navItem}
-        </a>
-    )), [onNavClick]);
+    const navItems = useMemo(
+        () =>
+            NAVBAR_ITEMS.map((navItem) => (
+                <a key={navItem} className="navbar-nav-item" onClick={onNavClick(navItem)}>
+                    {navItem}
+                </a>
+            )),
+        [onNavClick]
+    );
 
     return (
         <div className={classNames("navbar-desktop", {"navbar-scrolled": isScrolled})}>
             <Logo onClick={onNavClick("home")} />
 
-            <nav className="navbar-nav">
-                {navItems}
-            </nav>
+            <nav className="navbar-nav">{navItems}</nav>
         </div>
     );
 };

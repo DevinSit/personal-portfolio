@@ -7,7 +7,8 @@ export const debounceWithLeading = (func, wait) => {
     let timeout;
 
     return () => {
-        const context = this, args = arguments;
+        const context = this,
+            args = arguments;
 
         const later = () => {
             timeout = null;
@@ -30,7 +31,7 @@ export const scrollTo = (id) => {
     }
 
     const element = document.getElementById(id);
-    const headerOffset = 80;  // The $header-height variable in style/_dimens.scss
+    const headerOffset = 80; // The $header-height variable in style/_dimens.scss
     const bodyRect = document.body.getBoundingClientRect().top;
     const elementPosition = element.getBoundingClientRect().top - bodyRect;
     const offsetPosition = elementPosition - headerOffset;
