@@ -10,7 +10,7 @@ const TagLineCircle = () => (
                 I solve <em>lots</em>
             </h3>
             <h3 className="tag-line">of problems</h3>
-            <h1 className="sub-tag-line">Full Spectrum Developer</h1>
+            <h1 className="sub-tag-line">Full Stack Developer</h1>
         </div>
     </div>
 );

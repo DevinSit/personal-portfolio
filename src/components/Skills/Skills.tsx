@@ -19,8 +19,8 @@ const ContentHeader = ({skill}) => (
     <div className={classNames("skills-header", "skills-content-header")}>
         <div className={classNames("skills-header-left", "skills-content-header-left")}>
             <p className="skills-selector-description">
-                So what exactly can a{" "}
-                <span className="skills-highlight">Full Spectrum Developer</span> do?
+                So what exactly can this{" "}
+                <span className="skills-highlight">Full Stack Developer</span> do?
             </p>
             <p className="skills-selector-description">Let&apos;s take a look.</p>
         </div>
