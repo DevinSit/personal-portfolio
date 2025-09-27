@@ -1,0 +1,25 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_fonts.scss";
+@import "style/_mixins.scss";
+@import "style/_media_queries.scss";
+@import "style/_reset.scss";
+
+h1, h2, h3, h4, h5, h6 {
+    @include header-font();
+}
+
+html, body, #app, #app-content {
+    @include body-font();
+
+    height: 100%;
+    width: 100%;
+}
+
+#app-content {
+    padding-top: $header-height;
+
+    @include breakpoint-navbar {
+        padding-top: 0;
+    }
+}

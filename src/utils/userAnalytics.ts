@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import {isProduction, GOOGLE_ANALYTICS_TRACKING_CODE} from "src/config";
+import {isProduction, GOOGLE_ANALYTICS_TRACKING_CODE} from "config";
 
 export const initAnalytics = () => {
     if (isProduction()) {
