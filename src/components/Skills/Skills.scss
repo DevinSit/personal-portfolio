@@ -79,7 +79,7 @@ $mobile-content-side-padding: $default-spacing;
             @include breakpoint-navbar {
                 &:first-child {
                     /* Since the line-height shrinks with decreased font size, the correction needs to be smaller. */
-                    margin-top: $paragraph-line-height-correction / 2;
+                    margin-top: $paragraph-line-height-correction * 0.5;
                 }
 
                 &:last-child {

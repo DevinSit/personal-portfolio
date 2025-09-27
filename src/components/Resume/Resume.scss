@@ -37,7 +37,7 @@
                 }
 
                 @include breakpoint-navbar {
-                    margin-bottom: $default-spacing / 2;
+                    margin-bottom: $default-spacing * 0.5;
                 }
             }
 

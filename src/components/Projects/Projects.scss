@@ -151,7 +151,7 @@ $project-card-image-height: 215px;
                  * However, it looks good enough that it's hard to notice, so I'm fine with it.
                  */
                 top: $project-card-image-height - $floating-action-padding -
-                    $floating-action-icon-height/2;
+                    $floating-action-icon-height*0.5;
             }
 
             .project-card-info {
@@ -226,10 +226,10 @@ $project-card-image-height: 215px;
                 justify-content: space-between;
                 margin: -($default-spacing * 1.5);
                 margin-top: auto;
-                padding: $default-spacing/2 $default-spacing;
+                padding: $default-spacing*0.5 $default-spacing;
 
                 @include breakpoint-navbar {
-                    padding-right: $default-spacing/2;
+                    padding-right: $default-spacing*0.5;
                 }
 
                 .project-card-back-flip-button {
@@ -250,7 +250,7 @@ $project-card-image-height: 215px;
                     align-items: center;
 
                     .project-card-navigation-button {
-                        margin: 0 $default-spacing/2;
+                        margin: 0 $default-spacing*0.5;
                     }
                 }
             }

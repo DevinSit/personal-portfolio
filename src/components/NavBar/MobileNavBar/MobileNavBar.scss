@@ -14,7 +14,7 @@ $hamburger-active-hover-opacity: 1;
 
 $menu-fab-spacing: $default-spacing * 1.5;
 $menu-background-offset: -105vmax;
-$menu-background-position: $menu-fab-spacing + ($menu-fab-diameter / 2);
+$menu-background-position: $menu-fab-spacing + ($menu-fab-diameter * 0.5);
 $menu-background-size: 235vmax;
 $menu-background-z-index: 99998;
 $menu-foreground-z-index: 99999;
