@@ -1,7 +1,7 @@
-@import "style/_colors.scss";
-@import "style/_dimens.scss";
-@import "style/_media_queries.scss";
-@import "style/_mixins.scss";
+@import "@/style/_colors.scss";
+@import "@/style/_dimens.scss";
+@import "@/style/_media_queries.scss";
+@import "@/style/_mixins.scss";
 
 $hamburger-layer-width: 20px;
 $hamburger-layer-height: 2px;
@@ -10,7 +10,7 @@ $hamburger-layer-color: $color-light;
 $hamburger-hover-opacity: 1;
 $hamburger-active-hover-opacity: 1;
 
-@import "style/hamburgers/hamburgers";
+@import "@/style/hamburgers/hamburgers";
 
 $menu-fab-spacing: $default-spacing * 1.5;
 $menu-background-offset: -105vmax;

@@ -1,7 +1,7 @@
-@import "style/_colors.scss";
-@import "style/_dimens.scss";
-@import "style/_media_queries.scss";
-@import "style/_mixins.scss";
+@import "@/style/_colors.scss";
+@import "@/style/_dimens.scss";
+@import "@/style/_media_queries.scss";
+@import "@/style/_mixins.scss";
 
 $content-side-padding: $default-spacing * 3;
 $mobile-content-side-padding: $default-spacing;

@@ -1,5 +1,5 @@
-@import "style/_dimens.scss";
-@import "style/_media_queries.scss";
+@import "@/style/_dimens.scss";
+@import "@/style/_media_queries.scss";
 
 @mixin header-font() {
     font-family: "Titillium Web", sans-serif;
