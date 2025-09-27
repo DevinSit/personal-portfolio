@@ -1,0 +1,47 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_media_queries.scss";
+@import "style/_mixins.scss";
+
+#about {
+    @include section-padding();
+
+    align-items: center;
+    background-color: $color-background-light;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+
+    .about-content {
+        height: 100%;
+        max-width: $section-width;
+
+        .section-header {
+            margin-bottom: $default-spacing * 6;
+
+            @include breakpoint-navbar {
+                margin-bottom: $default-spacing * 3;
+            }
+        }
+
+        .about-content-body {
+            height: 100%;
+
+            .about-content-paragraph {
+                @include normal-paragraph();
+
+                max-width: $max-paragraph-width;
+
+                &:first-child {
+                    margin-bottom: $default-spacing * 2;
+                }
+            }
+
+            .about-highlight {
+                color: $color-primary-dark;
+                font-weight: bold;
+            }
+        }
+    }
+}

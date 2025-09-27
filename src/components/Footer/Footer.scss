@@ -1,0 +1,16 @@
+@import "style/_colors.scss";
+@import "style/_dimens.scss";
+@import "style/_mixins.scss";
+
+#footer {
+    background-color: $color-background;
+    display: flex;
+    justify-content: center;
+    padding: $default-spacing;
+
+    .footer-copyright {
+        @include normal-paragraph();
+
+        color: darken($color-light, 15%);
+    }
+}
