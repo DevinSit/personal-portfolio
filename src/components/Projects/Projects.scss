@@ -1,3 +1,5 @@
+@use "sass:color";
+
 @import "@/style/_colors.scss";
 @import "@/style/_dimens.scss";
 @import "@/style/_media_queries.scss";
@@ -61,14 +63,14 @@ $floating-action-icon-height: 24px;
     transition: all 0.2s;
 
     &:hover {
-        background-color: darken($color-primary, 2%);
+        background-color: color.adjust($color-primary, $lightness: -2%);
         box-shadow:
             0 4px 10px 0 rgba(0, 0, 0, 0.18),
             0 3px 14px 0 rgba(0, 0, 0, 0.15);
     }
 
     &:focus {
-        background-color: darken($color-primary, 5%);
+        background-color: color.adjust($color-primary, $lightness: -5%);
     }
 
     img {
@@ -151,7 +153,7 @@ $project-card-image-height: 215px;
                  * However, it looks good enough that it's hard to notice, so I'm fine with it.
                  */
                 top: $project-card-image-height - $floating-action-padding -
-                    $floating-action-icon-height*0.5;
+                    $floating-action-icon-height * 0.5;
             }
 
             .project-card-info {
@@ -226,10 +228,10 @@ $project-card-image-height: 215px;
                 justify-content: space-between;
                 margin: -($default-spacing * 1.5);
                 margin-top: auto;
-                padding: $default-spacing*0.5 $default-spacing;
+                padding: $default-spacing * 0.5 $default-spacing;
 
                 @include breakpoint-navbar {
-                    padding-right: $default-spacing*0.5;
+                    padding-right: $default-spacing * 0.5;
                 }
 
                 .project-card-back-flip-button {
@@ -250,7 +252,7 @@ $project-card-image-height: 215px;
                     align-items: center;
 
                     .project-card-navigation-button {
-                        margin: 0 $default-spacing*0.5;
+                        margin: 0 $default-spacing * 0.5;
                     }
                 }
             }
