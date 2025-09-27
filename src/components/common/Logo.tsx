@@ -1,4 +1,3 @@
-import Preact from "preact";
 import classNames from "classnames";
 import {IconLogo, IconLogoInverted} from "components/icons";
 import "./Logo.scss";
