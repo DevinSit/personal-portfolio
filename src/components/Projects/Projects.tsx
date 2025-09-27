@@ -1,4 +1,4 @@
-import {useCallback, useMemo, useState} from "preact/hooks";
+import {useCallback, useMemo, useState} from "react";
 import classNames from "classnames";
 import {DankMemeClassifierImage, KubailsImage, uFincsImage} from "assets/projectImages";
 import {IconBack, IconExternalLink, IconFlip, IconGithub} from "components/icons";

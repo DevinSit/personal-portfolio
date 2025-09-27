@@ -1,4 +1,4 @@
-import {useCallback, useMemo, useState} from "preact/hooks";
+import {useCallback, useMemo, useState} from "react";
 import classNames from "classnames";
 import {Logo} from "components/common";
 import {NAVBAR_ITEMS} from "utils/constants";

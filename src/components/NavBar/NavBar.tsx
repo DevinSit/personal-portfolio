@@ -1,4 +1,4 @@
-import {useEffect} from "preact/hooks";
+import {useEffect} from "react";
 import {scrollTo} from "utils/helpers";
 import DesktopNavBar from "./DesktopNavBar";
 import MobileNavBar from "./MobileNavBar";
