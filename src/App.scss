@@ -5,11 +5,20 @@
 @import "@/style/_media_queries.scss";
 @import "@/style/_reset.scss";
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     @include header-font();
 }
 
-html, body, #app, #app-content {
+html,
+body,
+#root,
+#app,
+#app-content {
     @include body-font();
 
     height: 100%;
